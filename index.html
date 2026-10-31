@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Tajrebty Scolaire</title>
 
   <style>
@@ -14,8 +15,8 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f6f8fb;
-      color: #1f2937;
+      background: linear-gradient(180deg, #fffaf2 0%, #eef7ff 100%);
+      color: #24324a;
     }
 
     header {
@@ -24,42 +25,47 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e8e8ee;
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 25px;
       font-weight: bold;
-      color: #2563eb;
+      color: #5b4be8;
     }
 
     nav a {
       text-decoration: none;
-      color: #374151;
-      margin-left: 20px;
+      color: #465169;
+      margin-left: 22px;
       font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #5b4be8;
     }
 
     .hero {
       text-align: center;
-      padding: 80px 20px 50px;
+      padding: 75px 20px 40px;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: 43px;
       margin-bottom: 15px;
+      color: #2f3a56;
     }
 
     .hero p {
       font-size: 18px;
-      color: #6b7280;
-      max-width: 650px;
+      color: #667085;
+      max-width: 680px;
       margin: auto;
       line-height: 1.6;
     }
 
     .levels {
-      max-width: 850px;
+      max-width: 900px;
       margin: 30px auto 70px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -67,55 +73,180 @@
       padding: 0 20px;
     }
 
-    .card {
-      background: white;
+    .level-card {
       padding: 45px 30px;
-      border-radius: 18px;
-      text-align: center;
+      border-radius: 24px;
       text-decoration: none;
-      color: inherit;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      color: #24324a;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(31, 41, 55, 0.08);
       transition: 0.2s;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+    .level-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(31, 41, 55, 0.13);
     }
 
-    .card h2 {
-      font-size: 32px;
-      color: #2563eb;
+    .level-card:nth-child(1) {
+      background: #daf5e9;
+    }
+
+    .level-card:nth-child(2) {
+      background: #ffecd2;
+    }
+
+    .level-card h2 {
+      font-size: 36px;
       margin-bottom: 12px;
     }
 
-    .card p {
-      color: #6b7280;
+    .level-card:nth-child(1) h2 {
+      color: #16856b;
+    }
+
+    .level-card:nth-child(2) h2 {
+      color: #db7527;
+    }
+
+    .level-card p {
+      color: #596579;
       line-height: 1.5;
     }
 
-    .info {
+    .subjects-section {
+      padding: 65px 20px;
       background: white;
-      padding: 50px 20px;
+    }
+
+    .subjects-section h2 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #33405c;
+    }
+
+    .subjects-section .subtitle {
+      text-align: center;
+      color: #727d90;
+      margin-bottom: 40px;
+    }
+
+    .subjects {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .subject {
+      background: #f6f7fb;
+      padding: 24px 15px;
+      text-align: center;
+      border-radius: 16px;
+      font-weight: bold;
+      color: #465169;
+      border: 1px solid #eceef4;
+    }
+
+    .subject:nth-child(4n+1) {
+      background: #edf4ff;
+    }
+
+    .subject:nth-child(4n+2) {
+      background: #f1ebff;
+    }
+
+    .subject:nth-child(4n+3) {
+      background: #fff2df;
+    }
+
+    .subject:nth-child(4n+4) {
+      background: #e8f8ef;
+    }
+
+    .structure {
+      max-width: 900px;
+      margin: 70px auto;
+      padding: 0 20px;
+    }
+
+    .structure h2 {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 30px;
+    }
+
+    .trimester-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .trimester {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    }
+
+    .trimester h3 {
+      color: #5b4be8;
+      margin-bottom: 15px;
+    }
+
+    .trimester ul {
+      list-style: none;
+    }
+
+    .trimester li {
+      padding: 8px 0;
+      color: #5f6b7a;
+    }
+
+    .special {
+      margin-top: 35px;
+      background: #fff4db;
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+      color: #685835;
+    }
+
+    .info {
+      background: #f2eeff;
+      padding: 55px 20px;
       text-align: center;
     }
 
     .info h2 {
+      color: #654bdc;
       margin-bottom: 15px;
     }
 
     .info p {
       max-width: 700px;
       margin: auto;
-      color: #6b7280;
-      line-height: 1.6;
+      color: #667085;
+      line-height: 1.7;
     }
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 28px;
       font-size: 14px;
-      color: #9ca3af;
+      color: #8a94a6;
+    }
+
+    @media (max-width: 850px) {
+      .subjects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trimester-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 650px) {
@@ -134,63 +265,174 @@
       .levels {
         grid-template-columns: 1fr;
       }
+
+      .subjects {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">Tajrebty Scolaire</div>
+<header>
+  <div class="logo">Tajrebty Scolaire</div>
 
-    <nav>
-      <a href="#">Accueil</a>
-      <a href="#">Outils</a>
-      <a href="#">Conseils</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#matieres">Matières</a>
+    <a href="#">Outils</a>
+    <a href="#">Conseils</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h1>Bienvenue sur Tajrebty Scolaire 👋</h1>
 
-    <p>
-      Des devoirs, contrôles et corrigés partagés par des élèves,
-      pour aider d'autres élèves à mieux réviser.
-    </p>
-  </section>
+<section class="hero">
 
-  <section class="levels">
+  <h1>Bienvenue sur Tajrebty Scolaire 👋</h1>
 
-    <a href="#" class="card">
-      <h2>7ème</h2>
-      <p>
-        Maths, Français, Sciences, Histoire-Géo
-        et autres matières.
-      </p>
-    </a>
+  <p>
+    Des devoirs, contrôles et corrigés partagés par des élèves,
+    pour aider d'autres élèves à réviser plus facilement.
+  </p>
 
-    <a href="#" class="card">
-      <h2>8ème</h2>
-      <p>
-        Retrouve les devoirs, contrôles,
-        synthèses et corrigés par trimestre.
-      </p>
-    </a>
+</section>
 
-  </section>
 
-  <section class="info">
-    <h2>Comment ça marche ?</h2>
+<section class="levels">
+
+  <a href="#" class="level-card">
+
+    <h2>7ème</h2>
 
     <p>
-      Choisis ton niveau, puis ta matière, ton trimestre
-      et le type de contrôle que tu souhaites consulter.
+      Choisis ta matière, ton trimestre et ton devoir.
     </p>
-  </section>
 
-  <footer>
-    Tajrebty Scolaire — Site d'entraide scolaire à but non lucratif.
-  </footer>
+  </a>
+
+  <a href="#" class="level-card">
+
+    <h2>8ème</h2>
+
+    <p>
+      Retrouve les contrôles, synthèses et corrigés disponibles.
+    </p>
+
+  </a>
+
+</section>
+
+
+<section class="subjects-section" id="matieres">
+
+  <h2>Les matières</h2>
+
+  <p class="subtitle">
+    Les mêmes matières seront disponibles en 7ème et en 8ème.
+  </p>
+
+  <div class="subjects">
+
+    <div class="subject">Math</div>
+    <div class="subject">Français</div>
+    <div class="subject">Arabe</div>
+    <div class="subject">Physique</div>
+
+    <div class="subject">Anglais</div>
+    <div class="subject">Sciences de la vie et de la Terre</div>
+    <div class="subject">Techniques</div>
+    <div class="subject">Informatique</div>
+
+    <div class="subject">Histoire</div>
+    <div class="subject">Géographie</div>
+    <div class="subject">Medaniya</div>
+    <div class="subject">Sciences islamiques</div>
+
+    <div class="subject">Théâtre</div>
+    <div class="subject">Musique</div>
+    <div class="subject">Dessin</div>
+
+  </div>
+
+</section>
+
+
+<section class="structure">
+
+  <h2>Organisation des devoirs</h2>
+
+  <div class="trimester-grid">
+
+    <div class="trimester">
+
+      <h3>Trimestre 1</h3>
+
+      <ul>
+        <li>📄 Contrôle 1</li>
+        <li>📄 Contrôle 2 si la matière en possède un</li>
+        <li>📝 Synthèse</li>
+      </ul>
+
+    </div>
+
+    <div class="trimester">
+
+      <h3>Trimestre 2</h3>
+
+      <ul>
+        <li>📄 Contrôle 1</li>
+        <li>📄 Contrôle 2 si la matière en possède un</li>
+        <li>📝 Synthèse</li>
+      </ul>
+
+    </div>
+
+    <div class="trimester">
+
+      <h3>Trimestre 3</h3>
+
+      <ul>
+        <li>📄 Contrôle 1</li>
+        <li>📄 Contrôle 2 si la matière en possède un</li>
+        <li>📝 Synthèse</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <div class="special">
+
+    🎨 <strong>Théâtre, Musique et Dessin</strong><br><br>
+
+    Ces matières n'auront pas de rubrique
+    Contrôle 1, Contrôle 2 ou Synthèse.
+
+  </div>
+
+</section>
+
+
+<section class="info">
+
+  <h2>Comment ça marche ?</h2>
+
+  <p>
+    Choisis d'abord ton niveau : 7ème ou 8ème.
+    Sélectionne ensuite ta matière, ton trimestre et le document disponible.
+    Les devoirs et les corrigés seront classés simplement pour les retrouver rapidement.
+  </p>
+
+</section>
+
+
+<footer>
+
+  Tajrebty Scolaire — Site d'entraide scolaire à but non lucratif.
+
+</footer>
 
 </body>
 </html>
