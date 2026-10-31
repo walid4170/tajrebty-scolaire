@@ -4,20 +4,193 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tajrebty Scolaire</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f8fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #374151;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 50px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .levels {
+      max-width: 850px;
+      margin: 30px auto 70px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 45px 30px;
+      border-radius: 18px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+    }
+
+    .card h2 {
+      font-size: 32px;
+      color: #2563eb;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .info {
+      background: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .info h2 {
+      margin-bottom: 15px;
+    }
+
+    .info p {
+      max-width: 700px;
+      margin: auto;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 18px 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .levels {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Tajrebty Scolaire</h1>
+  <header>
+    <div class="logo">Tajrebty Scolaire</div>
 
-  <p>
-    Un site d'entraide scolaire pour les élèves de 7ème et 8ème.
-  </p>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">Outils</a>
+      <a href="#">Conseils</a>
+    </nav>
+  </header>
 
-  <h2>Choisis ton niveau</h2>
+  <section class="hero">
+    <h1>Bienvenue sur Tajrebty Scolaire 👋</h1>
 
-  <button>7ème</button>
-  <button>8ème</button>
+    <p>
+      Des devoirs, contrôles et corrigés partagés par des élèves,
+      pour aider d'autres élèves à mieux réviser.
+    </p>
+  </section>
+
+  <section class="levels">
+
+    <a href="#" class="card">
+      <h2>7ème</h2>
+      <p>
+        Maths, Français, Sciences, Histoire-Géo
+        et autres matières.
+      </p>
+    </a>
+
+    <a href="#" class="card">
+      <h2>8ème</h2>
+      <p>
+        Retrouve les devoirs, contrôles,
+        synthèses et corrigés par trimestre.
+      </p>
+    </a>
+
+  </section>
+
+  <section class="info">
+    <h2>Comment ça marche ?</h2>
+
+    <p>
+      Choisis ton niveau, puis ta matière, ton trimestre
+      et le type de contrôle que tu souhaites consulter.
+    </p>
+  </section>
+
+  <footer>
+    Tajrebty Scolaire — Site d'entraide scolaire à but non lucratif.
+  </footer>
 
 </body>
 </html>
