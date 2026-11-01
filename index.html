@@ -16,40 +16,28 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: #29334d;
-
-      background:
-        linear-gradient(
-          135deg,
-          #fffaf2 0%,
-          #f4f0ff 45%,
-          #edf8ff 100%
-        );
-
+      background: linear-gradient(
+        135deg,
+        #fffaf2 0%,
+        #f4f0ff 45%,
+        #edf8ff 100%
+      );
       min-height: 100vh;
     }
 
-
-    /* HEADER */
-
     header {
       background: linear-gradient(90deg, #6657e8, #4b8bea);
-
       padding: 18px 7%;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      box-shadow:
-        0 5px 18px rgba(60,70,140,0.17);
+      box-shadow: 0 5px 18px rgba(60,70,140,0.17);
     }
 
     .logo {
       color: white;
-
       font-size: 25px;
       font-weight: 800;
-
       cursor: pointer;
     }
 
@@ -60,200 +48,122 @@
 
     .header-links a {
       text-decoration: none;
-
       color: white;
-
-      background:
-        rgba(255,255,255,0.16);
-
+      background: rgba(255,255,255,0.16);
       padding: 10px 16px;
-
       border-radius: 12px;
-
       font-weight: bold;
-
       font-size: 14px;
     }
 
-
-    /* CONTENU */
-
     .main {
       max-width: 1100px;
-
       margin: auto;
-
       padding: 60px 20px;
     }
 
-
-    /* ACCUEIL */
-
     .hero {
       text-align: center;
-
       padding: 35px 20px 20px;
     }
 
     .hero h1 {
       font-size: 44px;
-
       color: #303b59;
-
       margin-bottom: 16px;
     }
 
     .hero p {
       max-width: 680px;
-
       margin: auto;
-
       color: #69728a;
-
       line-height: 1.6;
-
       font-size: 18px;
     }
 
-
-    /* NOTRE HISTOIRE */
-
     .about-box {
       max-width: 850px;
-
       margin: 35px auto 50px;
-
       padding: 35px;
-
       border-radius: 26px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #f4efff 0%,
-          #eef8ff 45%,
-          #fff3de 100%
-        );
-
-      box-shadow:
-        0 12px 30px rgba(60,70,120,0.09);
-
-      border:
-        1px solid #ebe6ff;
+      background: linear-gradient(
+        135deg,
+        #f4efff 0%,
+        #eef8ff 45%,
+        #fff3de 100%
+      );
+      box-shadow: 0 12px 30px rgba(60,70,120,0.09);
+      border: 1px solid #ebe6ff;
     }
 
     .about-box h2 {
       text-align: center;
-
       color: #6552d9;
-
       font-size: 29px;
-
       margin-bottom: 22px;
     }
 
     .about-box p {
       color: #556079;
-
       line-height: 1.75;
-
       font-size: 16px;
-
       margin-bottom: 16px;
     }
 
     .about-signature {
       margin-top: 26px;
-
       padding: 17px 20px;
-
       background: #dcf5e8;
-
       color: #187a62;
-
       border-radius: 15px;
-
       text-align: center;
-
       font-weight: bold;
     }
 
-
-    /* TITRES */
-
     .intro {
       text-align: center;
-
       margin-bottom: 38px;
     }
 
     .intro h1 {
       font-size: 36px;
-
       margin-bottom: 12px;
-
       color: #303b59;
     }
 
     .intro p {
       color: #727c90;
-
       line-height: 1.6;
     }
 
-
-    /* GRILLES */
-
     .grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
     .years {
-      max-width: 760px;
-
+      max-width: 850px;
       margin: auto;
-
-      grid-template-columns:
-        repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
-
-
-    /* CARTES */
 
     .card {
       border: none;
-
       min-height: 115px;
-
       padding: 30px 20px;
-
       border-radius: 21px;
-
       font-size: 18px;
       font-weight: bold;
-
       color: #34405d;
-
       cursor: pointer;
-
-      box-shadow:
-        0 9px 24px rgba(31,41,55,0.07);
-
-      transition:
-        transform 0.2s,
-        box-shadow 0.2s;
+      box-shadow: 0 9px 24px rgba(31,41,55,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
       transform: translateY(-5px);
-
-      box-shadow:
-        0 14px 30px rgba(31,41,55,0.12);
+      box-shadow: 0 14px 30px rgba(31,41,55,0.12);
     }
 
     .card:nth-child(4n+1) {
@@ -272,139 +182,85 @@
       background: #ddecff;
     }
 
-
-    /* NIVEAUX */
-
     .year {
       padding: 55px 20px;
-
       font-size: 32px;
-
       min-height: 150px;
     }
 
-    .year:first-child {
-      background:
-        linear-gradient(
-          135deg,
-          #cef6df,
-          #e8fff2
-        );
-
+    .year:nth-child(1) {
+      background: linear-gradient(135deg, #cef6df, #e8fff2);
       color: #187a62;
     }
 
-    .year:last-child {
-      background:
-        linear-gradient(
-          135deg,
-          #ffe0bb,
-          #fff4df
-        );
-
+    .year:nth-child(2) {
+      background: linear-gradient(135deg, #ffe0bb, #fff4df);
       color: #cc6b1e;
     }
 
+    .year:nth-child(3) {
+      background: linear-gradient(135deg, #e5ddff, #f3efff);
+      color: #6552d9;
+    }
 
-    /* RETOUR */
+    .year:nth-child(4) {
+      background: linear-gradient(135deg, #d8ecff, #eef7ff);
+      color: #3476ba;
+    }
 
     .back {
       display: inline-block;
-
       margin-bottom: 28px;
-
       border: none;
-
       background: white;
-
       color: #6552d9;
-
       padding: 11px 18px;
-
       border-radius: 12px;
-
       cursor: pointer;
-
       font-weight: bold;
-
-      box-shadow:
-        0 5px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
-
-
-    /* FIL D'ARIANE */
 
     .breadcrumb {
       text-align: center;
-
       color: #9299a8;
-
       margin-bottom: 12px;
-
       font-size: 14px;
     }
 
-
-    /* DOCUMENTS */
-
     .documents-box {
       max-width: 700px;
-
       margin: auto;
-
       background: white;
-
       padding: 35px;
-
       border-radius: 22px;
-
-      box-shadow:
-        0 10px 28px rgba(0,0,0,0.07);
-
+      box-shadow: 0 10px 28px rgba(0,0,0,0.07);
       text-align: center;
     }
 
     .documents-box p {
       color: #6e778a;
-
       line-height: 1.6;
     }
-
-
-    /* MASQUER PAGES */
 
     .hidden {
       display: none;
     }
 
-
-    /* FOOTER */
-
     footer {
       text-align: center;
-
       padding: 30px 20px;
-
       color: #8a94a6;
-
       font-size: 14px;
     }
 
-
-    /* MOBILE */
-
     @media (max-width: 800px) {
-
       .grid {
-        grid-template-columns:
-          repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
-
     }
 
-
     @media (max-width: 600px) {
-
       header {
         padding: 15px 18px;
       }
@@ -434,80 +290,50 @@
       .years {
         grid-template-columns: 1fr;
       }
-
     }
-
   </style>
 </head>
 
-
 <body>
 
-
 <header>
-
-  <div
-    class="logo"
-    onclick="showYears()"
-  >
+  <div class="logo" onclick="showYears()">
     Tajrebty Scolaire
   </div>
 
-
   <div class="header-links">
-
     <a href="moyenne.html">
       Calculateur de moyenne
     </a>
-
   </div>
-
 </header>
-
-
 
 <main class="main">
 
-
-  <!-- ===================== -->
-  <!-- PAGE 1 : ACCUEIL -->
-  <!-- ===================== -->
+  <!-- ACCUEIL -->
 
   <section id="page-years">
 
-
     <div class="hero">
-
-      <h1>
-        Bienvenue sur Tajrebty Scolaire
-      </h1>
+      <h1>Bienvenue sur Tajrebty Scolaire</h1>
 
       <p>
-        Des ressources scolaires partagées
-        par des élèves pour aider d'autres
-        élèves à réviser et à progresser.
+        Des ressources scolaires partagées par des élèves
+        pour aider d'autres élèves à réviser et à progresser.
       </p>
-
     </div>
-
-
 
     <section class="about-box">
 
-      <h2>
-        Notre histoire
-      </h2>
-
+      <h2>Notre histoire</h2>
 
       <p>
         Nous sommes deux sœurs, élèves au collège pilote,
         et nous avons créé
         <strong>Tajrebty Scolaire</strong>
-        pour partager notre expérience avec d’autres
-        collégiens, avec l’aide et la supervision
-        de nos parents.
+        pour partager notre expérience avec d’autres collégiens,
+        avec l’aide et la supervision de nos parents.
       </p>
-
 
       <p>
         Nous partageons ici, petit à petit,
@@ -518,7 +344,6 @@
         et à progresser.
       </p>
 
-
       <p>
         Et ce n’est qu’un début :
         d’autres élèves pourront nous rejoindre
@@ -527,33 +352,27 @@
         et faire grandir cette entraide.
       </p>
 
-
       <div class="about-signature">
-
         Un site créé par des élèves,
         pour les élèves,
         avec l’accompagnement de leurs parents.
-
       </div>
 
     </section>
 
-
-
     <div class="intro">
-
-      <h1>
-        Choisis ton niveau
-      </h1>
-
-      <p>
-        Commence par sélectionner ta classe.
-      </p>
-
+      <h1>Choisis ton niveau</h1>
+      <p>Commence par sélectionner ta classe.</p>
     </div>
 
-
     <div class="grid years">
+
+      <button
+        class="card year"
+        onclick="selectYear('6ème')"
+      >
+        6ème
+      </button>
 
       <button
         class="card year"
@@ -562,7 +381,6 @@
         7ème
       </button>
 
-
       <button
         class="card year"
         onclick="selectYear('8ème')"
@@ -570,15 +388,18 @@
         8ème
       </button>
 
+      <button
+        class="card year"
+        onclick="selectYear('9ème')"
+      >
+        9ème
+      </button>
+
     </div>
 
   </section>
 
-
-
-  <!-- ===================== -->
-  <!-- PAGE 2 : MATIERES -->
-  <!-- ===================== -->
+  <!-- MATIERES -->
 
   <section
     id="page-subjects"
@@ -592,130 +413,86 @@
       ← Retour
     </button>
 
-
     <div
       class="breadcrumb"
       id="subject-breadcrumb"
     ></div>
 
-
     <div class="intro">
-
-      <h1>
-        Choisis ta matière
-      </h1>
-
+      <h1>Choisis ta matière</h1>
     </div>
-
 
     <div class="grid">
 
-
-      <button class="card"
-        onclick="selectSubject('Maths')">
+      <button class="card" onclick="selectSubject('Maths')">
         Maths
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Français')">
+      <button class="card" onclick="selectSubject('Français')">
         Français
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Arabe')">
+      <button class="card" onclick="selectSubject('Arabe')">
         Arabe
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Physique')">
+      <button class="card" onclick="selectSubject('Physique')">
         Physique
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Anglais')">
+      <button class="card" onclick="selectSubject('Anglais')">
         Anglais
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Sciences de la vie et de la Terre')">
+      <button class="card" onclick="selectSubject('Sciences de la vie et de la Terre')">
         Sciences de la vie et de la Terre
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Techniques')">
+      <button class="card" onclick="selectSubject('Techniques')">
         Techniques
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Informatique')">
+      <button class="card" onclick="selectSubject('Informatique')">
         Informatique
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Histoire')">
+      <button class="card" onclick="selectSubject('Histoire')">
         Histoire
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Géographie')">
+      <button class="card" onclick="selectSubject('Géographie')">
         Géographie
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Madaniya')">
+      <button class="card" onclick="selectSubject('Madaniya')">
         Madaniya
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Éducation islamique')">
+      <button class="card" onclick="selectSubject('Éducation islamique')">
         Éducation islamique
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Sport')">
+      <button class="card" onclick="selectSubject('Sport')">
         Sport
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Théâtre')">
+      <button class="card" onclick="selectSubject('Théâtre')">
         Théâtre
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Musique')">
+      <button class="card" onclick="selectSubject('Musique')">
         Musique
       </button>
 
-
-      <button class="card"
-        onclick="selectSubject('Dessin')">
+      <button class="card" onclick="selectSubject('Dessin')">
         Dessin
       </button>
-
 
     </div>
 
   </section>
 
-
-
-  <!-- ===================== -->
-  <!-- PAGE 3 : TRIMESTRES -->
-  <!-- ===================== -->
+  <!-- TRIMESTRES -->
 
   <section
     id="page-trimesters"
@@ -729,24 +506,16 @@
       ← Retour
     </button>
 
-
     <div
       class="breadcrumb"
       id="trimester-breadcrumb"
     ></div>
 
-
     <div class="intro">
-
-      <h1>
-        Choisis ton trimestre
-      </h1>
-
+      <h1>Choisis ton trimestre</h1>
     </div>
 
-
     <div class="grid">
-
 
       <button
         class="card"
@@ -755,14 +524,12 @@
         Trimestre 1
       </button>
 
-
       <button
         class="card"
         onclick="selectTrimester('Trimestre 2')"
       >
         Trimestre 2
       </button>
-
 
       <button
         class="card"
@@ -771,16 +538,11 @@
         Trimestre 3
       </button>
 
-
     </div>
 
   </section>
 
-
-
-  <!-- ===================== -->
-  <!-- PAGE 4 : CONTROLES -->
-  <!-- ===================== -->
+  <!-- CONTROLES -->
 
   <section
     id="page-tests"
@@ -794,21 +556,14 @@
       ← Retour
     </button>
 
-
     <div
       class="breadcrumb"
       id="test-breadcrumb"
     ></div>
 
-
     <div class="intro">
-
-      <h1>
-        Que veux-tu consulter ?
-      </h1>
-
+      <h1>Que veux-tu consulter ?</h1>
     </div>
-
 
     <div
       class="grid"
@@ -817,11 +572,7 @@
 
   </section>
 
-
-
-  <!-- ===================== -->
-  <!-- PAGE 5 : DOCUMENTS -->
-  <!-- ===================== -->
+  <!-- DOCUMENTS -->
 
   <section
     id="page-documents"
@@ -835,18 +586,14 @@
       ← Retour
     </button>
 
-
     <div
       class="breadcrumb"
       id="documents-breadcrumb"
     ></div>
 
-
     <div class="documents-box">
 
-      <h1>
-        Documents disponibles
-      </h1>
+      <h1>Documents disponibles</h1>
 
       <br>
 
@@ -859,19 +606,12 @@
 
   </section>
 
-
 </main>
 
-
-
 <footer>
-
   Tajrebty Scolaire —
   Site d'entraide scolaire à but non lucratif.
-
 </footer>
-
-
 
 <script>
 
@@ -880,32 +620,23 @@
   let selectedTrimester = "";
   let selectedTest = "";
 
-
   const pages = [
-
     "page-years",
     "page-subjects",
     "page-trimesters",
     "page-tests",
     "page-documents"
-
   ];
-
-
 
   function hidePages() {
 
     pages.forEach(page => {
-
       document
         .getElementById(page)
         .classList.add("hidden");
-
     });
 
   }
-
-
 
   function showYears() {
 
@@ -922,17 +653,12 @@
 
   }
 
-
-
   function selectYear(year) {
 
     selectedYear = year;
-
     showSubjects();
 
   }
-
-
 
   function showSubjects() {
 
@@ -942,12 +668,9 @@
       .getElementById("page-subjects")
       .classList.remove("hidden");
 
-
     document
       .getElementById("subject-breadcrumb")
-      .innerText =
-        selectedYear;
-
+      .innerText = selectedYear;
 
     window.scrollTo({
       top: 0,
@@ -956,17 +679,12 @@
 
   }
 
-
-
   function selectSubject(subject) {
 
     selectedSubject = subject;
-
     showTrimesters();
 
   }
-
-
 
   function showTrimesters() {
 
@@ -976,14 +694,12 @@
       .getElementById("page-trimesters")
       .classList.remove("hidden");
 
-
     document
       .getElementById("trimester-breadcrumb")
       .innerText =
         selectedYear +
         " › " +
         selectedSubject;
-
 
     window.scrollTo({
       top: 0,
@@ -992,17 +708,12 @@
 
   }
 
-
-
   function selectTrimester(trimester) {
 
     selectedTrimester = trimester;
-
     showTests();
 
   }
-
-
 
   function showTests() {
 
@@ -1011,7 +722,6 @@
     document
       .getElementById("page-tests")
       .classList.remove("hidden");
-
 
     document
       .getElementById("test-breadcrumb")
@@ -1022,21 +732,12 @@
         " › " +
         selectedTrimester;
 
-
     const testsList =
-      document.getElementById(
-        "tests-list"
-      );
-
+      document.getElementById("tests-list");
 
     testsList.innerHTML = "";
 
-
     let tests = [];
-
-
-    /* Maths + Arabe :
-       deux contrôles + synthèse */
 
     if (
       selectedSubject === "Maths" ||
@@ -1049,12 +750,7 @@
         "Synthèse"
       ];
 
-    }
-
-
-    /* Autres matières */
-
-    else {
+    } else {
 
       tests = [
         "Contrôle",
@@ -1063,37 +759,21 @@
 
     }
 
-
     tests.forEach(test => {
 
       const button =
-        document.createElement(
-          "button"
-        );
+        document.createElement("button");
 
+      button.className = "card";
+      button.innerText = test;
 
-      button.className =
-        "card";
+      button.onclick = function() {
+        selectTest(test);
+      };
 
-
-      button.innerText =
-        test;
-
-
-      button.onclick =
-        function() {
-
-          selectTest(test);
-
-        };
-
-
-      testsList.appendChild(
-        button
-      );
+      testsList.appendChild(button);
 
     });
-
 
     window.scrollTo({
       top: 0,
@@ -1102,24 +782,19 @@
 
   }
 
-
-
   function selectTest(test) {
 
     selectedTest = test;
 
     hidePages();
 
-
     document
       .getElementById("page-documents")
       .classList.remove("hidden");
 
-
     document
       .getElementById("documents-breadcrumb")
       .innerText =
-
         selectedYear +
         " › " +
         selectedSubject +
@@ -1127,7 +802,6 @@
         selectedTrimester +
         " › " +
         selectedTest;
-
 
     window.scrollTo({
       top: 0,
@@ -1137,7 +811,6 @@
   }
 
 </script>
-
 
 </body>
 </html>
