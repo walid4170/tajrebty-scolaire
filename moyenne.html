@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculateur de moyenne - Tajrebty Scolaire</title>
+
+  <title>Ma moyenne - Tajrebty Scolaire</title>
 
   <style>
     * {
@@ -14,206 +15,221 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #fffaf2, #f3efff, #eef8ff);
-      color: #303950;
+      background:
+        linear-gradient(
+          135deg,
+          #f4f3ff 0%,
+          #eef7ff 100%
+        );
+      color: #273352;
       min-height: 100vh;
     }
 
-    header {
-      background: linear-gradient(90deg, #6657e8, #4b8bea);
-      color: white;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: bold;
-    }
-
-    header a {
-      color: white;
-      text-decoration: none;
-      background: rgba(255,255,255,0.16);
-      padding: 10px 15px;
-      border-radius: 12px;
-      font-weight: bold;
-    }
-
-    main {
-      max-width: 1150px;
+    .page {
+      max-width: 1500px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 28px 30px 60px;
+    }
+
+    .topbar {
+      margin-bottom: 35px;
+    }
+
+    .back {
+      display: inline-block;
+      text-decoration: none;
+      background: white;
+      color: #554de1;
+      padding: 14px 22px;
+      border-radius: 18px;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(70, 75, 140, 0.08);
     }
 
     .title {
       text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .title .icon {
-      font-size: 42px;
-      margin-bottom: 10px;
+      margin-bottom: 45px;
     }
 
     .title h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      color: #303a5a;
+      margin-bottom: 12px;
     }
 
     .title p {
-      color: #6d7485;
+      color: #67728b;
+      font-size: 17px;
+      line-height: 1.6;
     }
 
-    .level-box {
-      max-width: 600px;
-      margin: 0 auto 35px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .level-btn {
-      border: none;
-      padding: 20px;
-      border-radius: 18px;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 28px;
+      box-shadow: 0 18px 42px rgba(63, 70, 130, 0.10);
       background: white;
-      box-shadow: 0 7px 20px rgba(0,0,0,0.06);
     }
 
-    .level-btn.active {
-      background: #e7e2ff;
-      color: #5540c9;
-      border: 2px solid #7667df;
+    table {
+      width: 100%;
+      min-width: 1150px;
+      border-collapse: collapse;
+      background: white;
     }
 
-    .coming-soon {
+    thead {
+      background: linear-gradient(90deg, #6258df, #4c82e8);
+      color: white;
+    }
+
+    th {
+      padding: 20px 16px;
+      font-size: 15px;
       text-align: center;
-      padding: 30px;
-      background: #fff4df;
-      border-radius: 18px;
-      display: none;
+    }
+
+    th:first-child {
+      text-align: left;
+      padding-left: 26px;
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid #edf0f7;
+      text-align: center;
+    }
+
+    td:first-child {
+      text-align: left;
+      padding-left: 22px;
+    }
+
+    tbody tr:hover {
+      background: #fafbff;
+    }
+
+    .subject-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .subject-emoji {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #f0edff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      flex: 0 0 auto;
+    }
+
+    .note-control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+    }
+
+    .note-control input[type="checkbox"] {
+      width: 21px;
+      height: 21px;
+      accent-color: #6258df;
+      cursor: pointer;
+    }
+
+    .note-select {
+      width: 88px;
+      padding: 11px 8px;
+      border: 2px solid #dfe3ee;
+      border-radius: 13px;
+      background: #fbfcff;
+      font-size: 15px;
+      color: #4d566c;
+      text-align: center;
+    }
+
+    .note-select:disabled {
+      opacity: 0.35;
+      background: #eef0f4;
+    }
+
+    .synthesis {
+      border-color: #ffca59;
+      background: #fff8e5;
+    }
+
+    .coef {
+      font-weight: bold;
+      color: #574dde;
+      font-size: 17px;
+    }
+
+    .average-pill {
+      display: inline-block;
+      min-width: 75px;
+      padding: 11px 12px;
+      border-radius: 13px;
+      background: #eef1f6;
+      color: #667085;
+      font-weight: bold;
+    }
+
+    .optional-line {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #7c8494;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .optional-line input {
+      accent-color: #6258df;
     }
 
     .info-box {
-      background: #fff4df;
-      border-radius: 18px;
-      padding: 18px 20px;
-      margin-bottom: 25px;
-      line-height: 1.6;
-      color: #6d582b;
-    }
-
-    .subjects {
-      display: grid;
-      gap: 18px;
-    }
-
-    .subject {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: 0 7px 22px rgba(0,0,0,0.06);
-    }
-
-    .subject-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 18px;
-    }
-
-    .subject-name {
-      font-size: 19px;
-      font-weight: bold;
-    }
-
-    .subject-coef {
-      background: #f1efff;
-      color: #5d4bc6;
-      border-radius: 10px;
-      padding: 7px 10px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .optional-subject {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-    }
-
-    .notes-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .note-box {
-      background: #fafbff;
-      border: 1px solid #e7e9f0;
-      border-radius: 14px;
-      padding: 13px;
-      text-align: center;
-    }
-
-    .note-box label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-
-    .toggle-line {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 8px;
-      font-size: 12px;
-      color: #747b8b;
-    }
-
-    select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccd1df;
-      background: white;
-      font-size: 16px;
-    }
-
-    select:disabled {
-      background: #eee;
-      color: #aaa;
-    }
-
-    .calculate-btn {
-      width: 100%;
-      margin-top: 30px;
-      border: none;
-      background: linear-gradient(90deg, #6657e8, #4b8bea);
-      color: white;
-      padding: 18px;
+      margin-top: 22px;
+      background: #fff7df;
+      border: 1px solid #f3d98f;
+      color: #6d5a22;
+      padding: 16px 20px;
       border-radius: 16px;
-      font-size: 19px;
+      line-height: 1.6;
+    }
+
+    .calculate {
+      display: block;
+      width: 100%;
+      margin-top: 26px;
+      border: none;
+      border-radius: 18px;
+      padding: 18px;
+      font-size: 18px;
       font-weight: bold;
+      color: white;
+      background: linear-gradient(90deg, #6258df, #4c82e8);
       cursor: pointer;
     }
 
-    .results {
-      margin-top: 35px;
-      display: none;
+    .error {
+      text-align: center;
+      color: #c43a3a;
+      font-weight: bold;
+      margin-top: 16px;
     }
 
-    .results-grid {
+    .results {
+      display: none;
+      margin-top: 32px;
+    }
+
+    .results-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
@@ -221,77 +237,62 @@
 
     .result-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 25px;
       text-align: center;
-      box-shadow: 0 7px 22px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 26px rgba(60, 70, 120, 0.08);
     }
 
-    .result-label {
-      color: #737b8e;
-      margin-bottom: 8px;
-    }
-
-    .result-value {
-      font-size: 34px;
+    .result-title {
+      color: #747d91;
+      margin-bottom: 10px;
       font-weight: bold;
-      color: #5540c9;
+    }
+
+    .result-number {
+      font-size: 36px;
+      color: #554bdd;
+      font-weight: bold;
     }
 
     .pilot-box {
       margin-top: 20px;
-      background: linear-gradient(135deg, #eaf8ef, #f6fff9);
-      border-radius: 20px;
+      background: linear-gradient(135deg, #eaf8ef, #f7fffa);
+      border: 1px solid #d5ecdc;
+      border-radius: 22px;
       padding: 25px;
     }
 
     .pilot-box h2 {
-      margin-bottom: 15px;
-      color: #24745b;
+      color: #236a53;
+      margin-bottom: 16px;
     }
 
     .pilot-rules {
+      color: #53675f;
       line-height: 1.7;
-      margin-bottom: 20px;
-      color: #4e665e;
+      margin-bottom: 18px;
     }
 
     .pilot-status {
-      font-size: 19px;
-      font-weight: bold;
-      padding: 15px;
       background: white;
-      border-radius: 13px;
-    }
-
-    .error {
-      color: #c83b3b;
-      margin-top: 15px;
-      text-align: center;
+      border-radius: 14px;
+      padding: 16px;
       font-weight: bold;
+      line-height: 1.6;
     }
 
-    @media (max-width: 750px) {
-      .notes-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .results-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .notes-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .level-box {
-        grid-template-columns: 1fr;
+    @media (max-width: 700px) {
+      .page {
+        padding: 20px 12px 50px;
       }
 
       .title h1 {
-        font-size: 29px;
+        font-size: 31px;
+      }
+
+      .results-row {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -299,383 +300,840 @@
 
 <body>
 
-<header>
-  <div class="logo">Tajrebty Scolaire</div>
-  <a href="index.html">Accueil</a>
-</header>
+<div class="page">
 
-<main>
+  <div class="topbar">
+    <a href="index.html" class="back">
+      ← Changer de niveau
+    </a>
+  </div>
 
   <section class="title">
-    <div class="icon">📘</div>
-    <h1>Calculateur de moyenne</h1>
-    <p>Entre tes notes et calcule ta moyenne simplement.</p>
+    <h1>📊 Ma moyenne — 7ème</h1>
+
+    <p>
+      Décoche un oral ou un contrôle s'il n'existe pas.
+      La synthèse reste obligatoire.
+      Les notes sont saisies par pas de 0,25.
+    </p>
   </section>
 
-  <div class="level-box">
-    <button class="level-btn active" onclick="show7()">7ème</button>
-    <button class="level-btn" onclick="show8()">8ème</button>
+  <div class="table-wrap">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Matière</th>
+          <th>Oral</th>
+          <th>Contrôle 1</th>
+          <th>Contrôle 2</th>
+          <th>⭐ Synthèse</th>
+          <th>Coef.</th>
+          <th>Moyenne</th>
+        </tr>
+      </thead>
+
+      <tbody id="subjectsBody"></tbody>
+
+    </table>
+
   </div>
 
-  <div id="soon" class="coming-soon">
-    Le calculateur de 8ème sera ajouté prochainement.
+  <div class="info-box">
+    <strong>À savoir :</strong>
+    en <strong>Musique</strong> et en <strong>Théâtre</strong>,
+    le contrôle compte coefficient 2 et la synthèse coefficient 1.
+    Pour l'Informatique, l'oral et la synthèse comptent chacun coefficient 1.
   </div>
 
-  <section id="calculator7">
+  <button class="calculate" onclick="calculateAll()">
+    Calculer ma moyenne
+  </button>
 
-    <div class="info-box">
-      <strong>À savoir :</strong><br>
-      La synthèse est obligatoire.<br>
-      Tu peux décocher un oral ou un contrôle s'il n'existe pas dans ton collège.<br>
-      En <strong>Musique</strong> et en <strong>Théâtre</strong>, le contrôle compte coefficient 2 et la synthèse coefficient 1.
+  <div id="error" class="error"></div>
+
+  <section id="results" class="results">
+
+    <div class="results-row">
+
+      <div class="result-card">
+        <div class="result-title">
+          Moyenne générale
+        </div>
+
+        <div id="generalAverage" class="result-number">
+          —
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-title">
+          Moyenne pilote
+        </div>
+
+        <div id="pilotAverage" class="result-number">
+          —
+        </div>
+      </div>
+
     </div>
 
-    <div id="subjects" class="subjects"></div>
+    <div class="pilot-box">
 
-    <button class="calculate-btn" onclick="calculate()">
-      Calculer ma moyenne
-    </button>
+      <h2>Objectif pilote</h2>
 
-    <div id="error" class="error"></div>
+      <div class="pilot-rules">
 
-    <section id="results" class="results">
+        <strong>Moyenne pilote :</strong><br>
 
-      <div class="results-grid">
+        (Maths + Arabe + Français) ÷ 3
 
-        <div class="result-card">
-          <div class="result-label">Moyenne générale</div>
-          <div id="generalAverage" class="result-value">--</div>
-        </div>
+        <br><br>
 
-        <div class="result-card">
-          <div class="result-label">Moyenne pilote</div>
-          <div id="pilotAverage" class="result-value">--</div>
-        </div>
+        Pour atteindre l'objectif :
+
+        <br>
+        • Moyenne pilote <strong>&gt; 12/20</strong>
+
+        <br>
+        • Moyenne générale <strong>≥ 13/20</strong>
 
       </div>
 
-      <div class="pilot-box">
+      <div id="pilotStatus" class="pilot-status"></div>
 
-        <h2>Objectif pilote</h2>
-
-        <div class="pilot-rules">
-          <strong>Moyenne pilote :</strong><br>
-          (Moyenne Maths + Moyenne Arabe + Moyenne Français) ÷ 3
-          <br><br>
-
-          Pour atteindre l'objectif pilote :
-          <br>
-          • Moyenne pilote <strong>&gt; 12/20</strong>
-          <br>
-          • Moyenne générale <strong>≥ 13/20</strong>
-        </div>
-
-        <div id="pilotStatus" class="pilot-status"></div>
-
-      </div>
-
-    </section>
+    </div>
 
   </section>
 
-</main>
+</div>
 
 <script>
 
 const subjects = [
-  {name:"Maths", emoji:"📐", coef:3, oral:false, c1:true, c2:true, optional:false, rule:"standard"},
-  {name:"Arabe", emoji:"📖", coef:4, oral:true, c1:true, c2:true, optional:false, rule:"standard"},
-  {name:"Français", emoji:"✏️", coef:4, oral:true, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Physique", emoji:"⚛️", coef:1.5, oral:false, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Sciences de la vie et de la Terre", emoji:"🌱", coef:1.5, oral:false, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Histoire", emoji:"🏛️", coef:1, oral:true, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Géographie", emoji:"🌍", coef:1, oral:false, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Madaniya", emoji:"🤝", coef:1, oral:false, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Anglais", emoji:"🇬🇧", coef:2, oral:true, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Éducation islamique", emoji:"📚", coef:1, oral:false, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Techniques", emoji:"🛠️", coef:1, oral:false, c1:true, c2:false, optional:false, rule:"standard"},
-  {name:"Informatique", emoji:"💻", coef:1, oral:true, c1:false, c2:false, optional:false, rule:"informatique"},
-  {name:"Sport", emoji:"🏃", coef:1, oral:true, c1:true, c2:false, optional:true, rule:"standard"},
-  {name:"Musique", emoji:"🎵", coef:1, oral:false, c1:true, c2:false, optional:true, rule:"art"},
-  {name:"Dessin", emoji:"🎨", coef:1, oral:false, c1:true, c2:false, optional:true, rule:"standard"},
-  {name:"Théâtre", emoji:"🎭", coef:1, oral:false, c1:true, c2:false, optional:true, rule:"art"}
+
+  {
+    name: "Maths",
+    emoji: "🔢",
+    coef: 3,
+    oral: true,
+    c1: true,
+    c2: true,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Arabe",
+    emoji: "🗣️",
+    coef: 4,
+    oral: true,
+    c1: true,
+    c2: true,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Français",
+    emoji: "📖",
+    coef: 4,
+    oral: true,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Physique",
+    emoji: "⚛️",
+    coef: 1.5,
+    oral: false,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Sciences de la vie et de la Terre",
+    emoji: "🌱",
+    coef: 1.5,
+    oral: true,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Histoire",
+    emoji: "🏺",
+    coef: 1,
+    oral: true,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Géographie",
+    emoji: "🌍",
+    coef: 1,
+    oral: true,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Madaniya",
+    emoji: "🤝",
+    coef: 1,
+    oral: false,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Anglais",
+    emoji: "🇬🇧",
+    coef: 2,
+    oral: true,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Éducation islamique",
+    emoji: "📚",
+    coef: 1,
+    oral: false,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Techniques",
+    emoji: "🛠️",
+    coef: 1,
+    oral: false,
+    c1: true,
+    c2: false,
+    optional: false,
+    rule: "standard"
+  },
+
+  {
+    name: "Informatique",
+    emoji: "💻",
+    coef: 1,
+    oral: true,
+    c1: false,
+    c2: false,
+    optional: false,
+    rule: "informatique"
+  },
+
+  {
+    name: "Sport",
+    emoji: "🏃",
+    coef: 1,
+    oral: true,
+    c1: true,
+    c2: false,
+    optional: true,
+    rule: "standard"
+  },
+
+  {
+    name: "Musique",
+    emoji: "🎵",
+    coef: 1,
+    oral: false,
+    c1: true,
+    c2: false,
+    optional: true,
+    rule: "art"
+  },
+
+  {
+    name: "Dessin",
+    emoji: "🎨",
+    coef: 1,
+    oral: false,
+    c1: true,
+    c2: false,
+    optional: true,
+    rule: "standard"
+  },
+
+  {
+    name: "Théâtre",
+    emoji: "🎭",
+    coef: 1,
+    oral: false,
+    c1: true,
+    c2: false,
+    optional: true,
+    rule: "art"
+  }
+
 ];
 
-function options() {
-  let html = '<option value="">Note</option>';
+
+function noteOptions() {
+
+  let html =
+    '<option value="">/20</option>';
 
   for(let i = 0; i <= 80; i++) {
-    const value = (i * 0.25).toFixed(2);
-    html += `<option value="${value}">${value.replace(".", ",")}</option>`;
+
+    let value =
+      (i * 0.25).toFixed(2);
+
+    html +=
+      `<option value="${value}">
+        ${value.replace(".", ",")}
+      </option>`;
+
   }
 
   return html;
 }
 
-function createNote(subjectIndex, type, label, active=true, mandatory=false) {
 
-  if(!active && !mandatory) return "";
+function noteCell(index, type, active, synthesis = false) {
 
-  const id = `${type}-${subjectIndex}`;
+  if(!active && !synthesis) {
+
+    return `
+      <td>
+        <span style="color:#b7bdc9;">—</span>
+      </td>
+    `;
+
+  }
+
+  const id =
+    `${type}-${index}`;
+
+  if(synthesis) {
+
+    return `
+      <td>
+        <select
+          id="${id}"
+          class="note-select synthesis"
+        >
+          ${noteOptions()}
+        </select>
+      </td>
+    `;
+
+  }
 
   return `
-    <div class="note-box">
+    <td>
 
-      <label>${label}</label>
+      <div class="note-control">
 
-      ${mandatory ? "" : `
-        <div class="toggle-line">
-          <input
-            type="checkbox"
-            id="use-${id}"
-            checked
-            onchange="toggleNote('${id}')"
-          >
-          <label for="use-${id}">Utiliser</label>
-        </div>
-      `}
+        <input
+          type="checkbox"
+          id="use-${id}"
+          checked
+          onchange="toggleNote('${id}')"
+        >
 
-      <select id="${id}">
-        ${options()}
-      </select>
+        <select
+          id="${id}"
+          class="note-select"
+        >
+          ${noteOptions()}
+        </select>
 
-    </div>
+      </div>
+
+    </td>
   `;
 }
 
+
 function renderSubjects() {
 
-  const container = document.getElementById("subjects");
-  container.innerHTML = "";
+  const tbody =
+    document.getElementById(
+      "subjectsBody"
+    );
 
-  subjects.forEach((subject, index) => {
+  tbody.innerHTML = "";
 
-    const div = document.createElement("div");
-    div.className = "subject";
-    div.id = `subject-${index}`;
+  subjects.forEach(
+    (subject, index) => {
 
-    div.innerHTML = `
+      const row =
+        document.createElement("tr");
 
-      <div class="subject-top">
+      row.id =
+        `row-${index}`;
 
-        <div class="subject-name">
-          ${subject.emoji} ${subject.name}
-        </div>
+      row.innerHTML = `
 
-        <div style="display:flex; align-items:center; gap:12px;">
+        <td>
 
-          <div class="subject-coef">
-            Coef. ${subject.coef}
+          <div class="subject-cell">
+
+            <div class="subject-emoji">
+              ${subject.emoji}
+            </div>
+
+            <div>
+
+              ${subject.name}
+
+              ${
+                subject.optional
+                ? `
+                  <label class="optional-line">
+
+                    <input
+                      type="checkbox"
+                      id="subject-enabled-${index}"
+                      checked
+                      onchange="toggleSubject(${index})"
+                    >
+
+                    Matière suivie
+
+                  </label>
+                `
+                : ""
+              }
+
+            </div>
+
           </div>
 
-          ${subject.optional ? `
-            <label class="optional-subject">
-              <input
-                type="checkbox"
-                id="enabled-${index}"
-                checked
-                onchange="toggleSubject(${index})"
-              >
-              Matière suivie
-            </label>
-          ` : ""}
+        </td>
 
-        </div>
 
-      </div>
+        ${noteCell(
+          index,
+          "oral",
+          subject.oral
+        )}
 
-      <div class="notes-grid">
 
-        ${createNote(index, "oral", "Oral", subject.oral)}
+        ${noteCell(
+          index,
+          "c1",
+          subject.c1
+        )}
 
-        ${createNote(index, "c1", "Contrôle 1", subject.c1)}
 
-        ${createNote(index, "c2", "Contrôle 2", subject.c2)}
+        ${noteCell(
+          index,
+          "c2",
+          subject.c2
+        )}
 
-        ${createNote(index, "synth", "Synthèse", true, true)}
 
-      </div>
+        ${noteCell(
+          index,
+          "synth",
+          true,
+          true
+        )}
 
-    `;
 
-    container.appendChild(div);
+        <td class="coef">
+          ${String(subject.coef).replace(".", ",")}
+        </td>
 
-  });
+
+        <td>
+          <span
+            id="avg-${index}"
+            class="average-pill"
+          >
+            —
+          </span>
+        </td>
+
+      `;
+
+      tbody.appendChild(row);
+
+    }
+  );
 
 }
+
 
 function toggleNote(id) {
 
-  const checkbox = document.getElementById(`use-${id}`);
-  const select = document.getElementById(id);
+  const checkbox =
+    document.getElementById(
+      `use-${id}`
+    );
 
-  select.disabled = !checkbox.checked;
+  const select =
+    document.getElementById(id);
+
+  select.disabled =
+    !checkbox.checked;
 
   if(!checkbox.checked) {
+
     select.value = "";
+
   }
+
 }
+
 
 function toggleSubject(index) {
 
-  const enabled = document.getElementById(`enabled-${index}`).checked;
-  const subject = document.getElementById(`subject-${index}`);
+  const enabled =
+    document.getElementById(
+      `subject-enabled-${index}`
+    ).checked;
 
-  subject.style.opacity = enabled ? "1" : "0.45";
+  const row =
+    document.getElementById(
+      `row-${index}`
+    );
 
-  subject.querySelectorAll("select, input:not(#enabled-" + index + ")")
-    .forEach(el => {
-      el.disabled = !enabled;
+  row.style.opacity =
+    enabled ? "1" : "0.4";
+
+  row
+    .querySelectorAll(
+      "select, input[type='checkbox']"
+    )
+    .forEach(element => {
+
+      if(
+        element.id !==
+        `subject-enabled-${index}`
+      ) {
+
+        element.disabled =
+          !enabled;
+
+      }
+
     });
 
 }
 
-function getValue(id) {
 
-  const element = document.getElementById(id);
+function valueOf(id) {
 
-  if(!element || element.disabled || element.value === "") {
+  const element =
+    document.getElementById(id);
+
+  if(
+    !element ||
+    element.disabled ||
+    element.value === ""
+  ) {
+
     return null;
+
   }
 
-  return parseFloat(element.value);
+  return parseFloat(
+    element.value
+  );
+
 }
 
-function isUsed(id) {
 
-  const checkbox = document.getElementById(`use-${id}`);
+function isActive(id) {
 
-  if(!checkbox) return true;
+  const checkbox =
+    document.getElementById(
+      `use-${id}`
+    );
+
+  if(!checkbox) {
+
+    return true;
+
+  }
 
   return checkbox.checked;
+
 }
 
-function subjectAverage(subject, index) {
 
-  const synth = getValue(`synth-${index}`);
+function calculateSubject(
+  subject,
+  index
+) {
 
-  if(synth === null) {
-    throw new Error(`Il manque la synthèse en ${subject.name}.`);
+  const synthesis =
+    valueOf(
+      `synth-${index}`
+    );
+
+  if(synthesis === null) {
+
+    throw new Error(
+      `Il manque la synthèse en ${subject.name}.`
+    );
+
   }
 
   let total = 0;
-  let weights = 0;
+  let weight = 0;
 
-  if(subject.rule === "informatique") {
 
-    total += synth;
-    weights += 1;
+  if(
+    subject.rule ===
+    "informatique"
+  ) {
 
-    if(subject.oral && isUsed(`oral-${index}`)) {
+    total += synthesis;
+    weight += 1;
 
-      const oral = getValue(`oral-${index}`);
+    if(
+      subject.oral &&
+      isActive(`oral-${index}`)
+    ) {
+
+      const oral =
+        valueOf(
+          `oral-${index}`
+        );
 
       if(oral === null) {
-        throw new Error(`Il manque l'oral en ${subject.name}.`);
+
+        throw new Error(
+          `Il manque l'oral en ${subject.name}.`
+        );
+
       }
 
       total += oral;
-      weights += 1;
+      weight += 1;
+
     }
 
   }
 
-  else if(subject.rule === "art") {
 
-    total += synth;
-    weights += 1;
+  else if(
+    subject.rule ===
+    "art"
+  ) {
 
-    if(subject.c1 && isUsed(`c1-${index}`)) {
+    total += synthesis;
+    weight += 1;
 
-      const c1 = getValue(`c1-${index}`);
+    if(
+      subject.c1 &&
+      isActive(`c1-${index}`)
+    ) {
 
-      if(c1 === null) {
-        throw new Error(`Il manque le contrôle en ${subject.name}.`);
+      const control =
+        valueOf(
+          `c1-${index}`
+        );
+
+      if(control === null) {
+
+        throw new Error(
+          `Il manque le contrôle en ${subject.name}.`
+        );
+
       }
 
-      total += c1 * 2;
-      weights += 2;
+      total +=
+        control * 2;
+
+      weight += 2;
+
     }
 
   }
+
 
   else {
 
-    total += synth * 2;
-    weights += 2;
+    total +=
+      synthesis * 2;
 
-    if(subject.oral && isUsed(`oral-${index}`)) {
+    weight += 2;
 
-      const oral = getValue(`oral-${index}`);
+
+    if(
+      subject.oral &&
+      isActive(`oral-${index}`)
+    ) {
+
+      const oral =
+        valueOf(
+          `oral-${index}`
+        );
 
       if(oral === null) {
-        throw new Error(`Il manque l'oral en ${subject.name}.`);
+
+        throw new Error(
+          `Il manque l'oral en ${subject.name}.`
+        );
+
       }
 
       total += oral;
-      weights += 1;
+      weight += 1;
+
     }
 
-    if(subject.c1 && isUsed(`c1-${index}`)) {
 
-      const c1 = getValue(`c1-${index}`);
+    if(
+      subject.c1 &&
+      isActive(`c1-${index}`)
+    ) {
 
-      if(c1 === null) {
-        throw new Error(`Il manque le contrôle 1 en ${subject.name}.`);
+      const control1 =
+        valueOf(
+          `c1-${index}`
+        );
+
+      if(control1 === null) {
+
+        throw new Error(
+          `Il manque le contrôle 1 en ${subject.name}.`
+        );
+
       }
 
-      total += c1;
-      weights += 1;
+      total += control1;
+      weight += 1;
+
     }
 
-    if(subject.c2 && isUsed(`c2-${index}`)) {
 
-      const c2 = getValue(`c2-${index}`);
+    if(
+      subject.c2 &&
+      isActive(`c2-${index}`)
+    ) {
 
-      if(c2 === null) {
-        throw new Error(`Il manque le contrôle 2 en ${subject.name}.`);
+      const control2 =
+        valueOf(
+          `c2-${index}`
+        );
+
+      if(control2 === null) {
+
+        throw new Error(
+          `Il manque le contrôle 2 en ${subject.name}.`
+        );
+
       }
 
-      total += c2;
-      weights += 1;
+      total += control2;
+      weight += 1;
+
     }
 
   }
 
-  return total / weights;
+
+  return total / weight;
+
 }
 
-function calculate() {
 
-  document.getElementById("error").innerText = "";
+function calculateAll() {
 
-  let total = 0;
-  let coefficients = 0;
+  document.getElementById(
+    "error"
+  ).innerText = "";
+
+
+  let weightedTotal = 0;
+  let coefficientTotal = 0;
 
   const averages = {};
 
+
   try {
 
-    subjects.forEach((subject, index) => {
+    subjects.forEach(
+      (subject, index) => {
 
-      let enabled = true;
+        let enabled = true;
 
-      if(subject.optional) {
-        enabled = document.getElementById(`enabled-${index}`).checked;
+        if(subject.optional) {
+
+          enabled =
+            document.getElementById(
+              `subject-enabled-${index}`
+            ).checked;
+
+        }
+
+
+        if(!enabled) {
+
+          document.getElementById(
+            `avg-${index}`
+          ).innerText = "—";
+
+          return;
+
+        }
+
+
+        const average =
+          calculateSubject(
+            subject,
+            index
+          );
+
+
+        averages[
+          subject.name
+        ] = average;
+
+
+        document.getElementById(
+          `avg-${index}`
+        ).innerText =
+          average
+            .toFixed(2)
+            .replace(".", ",");
+
+
+        weightedTotal +=
+          average *
+          subject.coef;
+
+
+        coefficientTotal +=
+          subject.coef;
+
       }
+    );
 
-      if(!enabled) return;
 
-      const avg = subjectAverage(subject, index);
+    const general =
+      weightedTotal /
+      coefficientTotal;
 
-      averages[subject.name] = avg;
-
-      total += avg * subject.coef;
-      coefficients += subject.coef;
-
-    });
-
-    const general = total / coefficients;
 
     const pilot =
       (
@@ -684,50 +1142,91 @@ function calculate() {
         averages["Français"]
       ) / 3;
 
-    document.getElementById("generalAverage").innerText =
-      general.toFixed(2).replace(".", ",") + " / 20";
 
-    document.getElementById("pilotAverage").innerText =
-      pilot.toFixed(2).replace(".", ",") + " / 20";
+    document.getElementById(
+      "generalAverage"
+    ).innerText =
+      general
+        .toFixed(2)
+        .replace(".", ",") +
+      " / 20";
 
-    const pilotOK = pilot > 12;
-    const generalOK = general >= 13;
+
+    document.getElementById(
+      "pilotAverage"
+    ).innerText =
+      pilot
+        .toFixed(2)
+        .replace(".", ",") +
+      " / 20";
+
+
+    const pilotOK =
+      pilot > 12;
+
+    const generalOK =
+      general >= 13;
+
 
     let status = "";
 
-    if(pilotOK && generalOK) {
+
+    if(
+      pilotOK &&
+      generalOK
+    ) {
 
       status =
         "✅ Les deux conditions de l'objectif pilote sont atteintes.";
 
-    } else {
+    }
 
-      status = "❌ Objectif pilote non atteint.<br><br>";
+    else {
+
+      status =
+        "❌ Objectif pilote non atteint.<br><br>";
+
 
       if(!pilotOK) {
+
         status +=
-          "Moyenne Maths + Arabe + Français : elle doit être supérieure à 12/20.<br>";
+          "• La moyenne Maths + Arabe + Français doit être supérieure à 12/20.<br>";
+
       }
+
 
       if(!generalOK) {
 
         const missing =
-          Math.max(0, 13 - general);
+          13 - general;
 
         status +=
-          "Moyenne générale : il manque environ " +
-          missing.toFixed(2).replace(".", ",") +
-          " point(s) pour atteindre 13/20.";
+          "• Il manque environ " +
+          missing
+            .toFixed(2)
+            .replace(".", ",") +
+          " point(s) pour atteindre 13/20 de moyenne générale.";
 
       }
 
     }
 
-    document.getElementById("pilotStatus").innerHTML = status;
 
-    document.getElementById("results").style.display = "block";
+    document.getElementById(
+      "pilotStatus"
+    ).innerHTML =
+      status;
 
-    document.getElementById("results").scrollIntoView({
+
+    document.getElementById(
+      "results"
+    ).style.display =
+      "block";
+
+
+    document.getElementById(
+      "results"
+    ).scrollIntoView({
       behavior: "smooth"
     });
 
@@ -735,36 +1234,21 @@ function calculate() {
 
   catch(error) {
 
-    document.getElementById("error").innerText =
+    document.getElementById(
+      "error"
+    ).innerText =
       error.message;
 
-    document.getElementById("results").style.display = "none";
+
+    document.getElementById(
+      "results"
+    ).style.display =
+      "none";
 
   }
 
 }
 
-function show7() {
-
-  document.getElementById("calculator7").style.display = "block";
-  document.getElementById("soon").style.display = "none";
-
-  const buttons = document.querySelectorAll(".level-btn");
-
-  buttons[0].classList.add("active");
-  buttons[1].classList.remove("active");
-}
-
-function show8() {
-
-  document.getElementById("calculator7").style.display = "none";
-  document.getElementById("soon").style.display = "block";
-
-  const buttons = document.querySelectorAll(".level-btn");
-
-  buttons[0].classList.remove("active");
-  buttons[1].classList.add("active");
-}
 
 renderSubjects();
 
