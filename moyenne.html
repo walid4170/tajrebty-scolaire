@@ -311,6 +311,74 @@
       line-height: 1.6;
     }
 
+
+    /* ---------- VERSION ALLEGEE ---------- */
+
+    table { min-width: 820px; }
+
+    th { padding: 13px 10px; font-size: 14px; }
+    th:first-child { padding-left: 22px; }
+
+    td { padding: 7px 10px; }
+    td:first-child { padding-left: 22px; }
+
+    .subject-cell { font-size: 15px; gap: 0; }
+
+    .note-input {
+      width: 70px;
+      padding: 7px 6px;
+      border: 2px solid #cfc9f5;
+      border-radius: 11px;
+      background: #fff;
+      font-size: 15px;
+      color: #273352;
+      text-align: center;
+      font-family: inherit;
+    }
+
+    .note-input:placeholder-shown {
+      background: #f0f1f6;
+      border-color: #e3e6ef;
+      color: #9aa3b5;
+    }
+
+    .note-input:focus {
+      outline: none;
+      border-color: #6258df;
+      background: #fff;
+    }
+
+    .note-input.synthesis { border-color: #ffca59; }
+
+    .note-input.synthesis:placeholder-shown {
+      background: #fff8e5;
+      border-color: #ffca59;
+    }
+
+    .note-input:disabled { opacity: 0.35; }
+
+    .note-input.invalide {
+      border-color: #c43a3a;
+      background: #fde8e8;
+    }
+
+    .average-pill { padding: 7px 10px; min-width: 64px; }
+
+    .aide {
+      max-width: 720px;
+      margin: 18px auto 0;
+      background: white;
+      border-radius: 16px;
+      padding: 14px 20px;
+      text-align: left;
+      box-shadow: 0 6px 18px rgba(70, 75, 140, 0.08);
+      color: #4d566c;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .aide strong { color: #554de1; }
+
     @media (max-width: 700px) {
       .page {
         padding: 20px 12px 50px;
@@ -338,15 +406,18 @@
   </div>
 
   <section class="title">
-    <h1 id="titre-moyenne">📊 Ma moyenne — 7ème</h1>
+    <h1 id="titre-moyenne">Ma moyenne — 7ème</h1>
 
     <div class="niveaux" id="niveaux"></div>
 
-    <p>
-      Décoche un oral ou un contrôle s'il n'existe pas.
-      La synthèse reste obligatoire.
-      Les notes sont saisies par pas de 0,25.
-    </p>
+    <div class="aide">
+      <strong>Comment ça marche ?</strong><br>
+      • Remplis seulement les notes que tu as (tu peux écrire 12,5 ou 12.5).<br>
+      • Une case <strong>vide et grise</strong> n'est pas comptée : par exemple, laisse « Oral » vide s'il n'y en a pas dans cette matière.<br>
+      • Pour la réactiver, clique dessus et tape ta note. Pour l'enlever, efface la note.<br>
+      • La <strong>synthèse</strong> est obligatoire.
+    </div>
+
   </section>
 
   <div class="table-wrap">
@@ -359,7 +430,7 @@
           <th>Oral</th>
           <th>Contrôle 1</th>
           <th>Contrôle 2</th>
-          <th>⭐ Synthèse</th>
+          <th>Synthèse (obligatoire)</th>
           <th>Coef.</th>
           <th>Moyenne</th>
         </tr>
@@ -659,44 +730,20 @@ function noteCell(index, type, active, synthesis = false) {
   const id =
     `${type}-${index}`;
 
-  if(synthesis) {
-
-    return `
-      <td>
-        <select
-          id="${id}"
-          class="note-select synthesis"
-        >
-          ${noteOptions()}
-        </select>
-      </td>
-    `;
-
-  }
-
   return `
     <td>
-
-      <div class="note-control">
-
-        <input
-          type="checkbox"
-          id="use-${id}"
-          checked
-          onchange="toggleNote('${id}')"
-        >
-
-        <select
-          id="${id}"
-          class="note-select"
-        >
-          ${noteOptions()}
-        </select>
-
-      </div>
-
+      <input
+        type="text"
+        inputmode="decimal"
+        autocomplete="off"
+        id="${id}"
+        class="note-input${synthesis ? " synthesis" : ""}"
+        placeholder="—"
+        oninput="this.classList.remove('invalide')"
+      >
     </td>
   `;
+
 }
 
 
@@ -723,10 +770,6 @@ function renderSubjects() {
         <td>
 
           <div class="subject-cell">
-
-            <div class="subject-emoji">
-              ${subject.emoji}
-            </div>
 
             <div>
 
@@ -811,28 +854,6 @@ function renderSubjects() {
 }
 
 
-function toggleNote(id) {
-
-  const checkbox =
-    document.getElementById(
-      `use-${id}`
-    );
-
-  const select =
-    document.getElementById(id);
-
-  select.disabled =
-    !checkbox.checked;
-
-  if(!checkbox.checked) {
-
-    select.value = "";
-
-  }
-
-}
-
-
 function toggleSubject(index) {
 
   const enabled =
@@ -850,7 +871,7 @@ function toggleSubject(index) {
 
   row
     .querySelectorAll(
-      "select, input[type='checkbox']"
+      "input"
     )
     .forEach(element => {
 
@@ -874,37 +895,47 @@ function valueOf(id) {
   const element =
     document.getElementById(id);
 
-  if(
-    !element ||
-    element.disabled ||
-    element.value === ""
-  ) {
+  if(!element || element.disabled) {
 
     return null;
 
   }
 
-  return parseFloat(
+  const texte =
     element.value
-  );
+      .trim()
+      .replace(",", ".");
+
+  if(texte === "") {
+
+    return null;
+
+  }
+
+  const nombre = Number(texte);
+
+  if(
+    Number.isNaN(nombre) ||
+    nombre < 0 ||
+    nombre > 20
+  ) {
+
+    element.classList.add("invalide");
+
+    throw new Error(
+      "Chaque note doit être un nombre entre 0 et 20."
+    );
+
+  }
+
+  return nombre;
 
 }
 
 
 function isActive(id) {
 
-  const checkbox =
-    document.getElementById(
-      `use-${id}`
-    );
-
-  if(!checkbox) {
-
-    return true;
-
-  }
-
-  return checkbox.checked;
+  return valueOf(id) !== null;
 
 }
 
@@ -1288,7 +1319,7 @@ function setNiveau(niveau) {
   if (!NIVEAUX.includes(niveau)) niveau = "7ème";
 
   document.getElementById("titre-moyenne").textContent =
-    "📊 Ma moyenne — " + niveau;
+    "Ma moyenne — " + niveau;
 
   document.querySelectorAll(".niveau-btn").forEach(b => {
     b.classList.toggle("actif", b.dataset.niveau === niveau);
