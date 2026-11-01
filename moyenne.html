@@ -15,17 +15,14 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: #27304a;
-      background:
-        linear-gradient(
-          135deg,
-          #f7f5ff 0%,
-          #eef8ff 45%,
-          #fff8ec 100%
-        );
+      background: linear-gradient(
+        135deg,
+        #f7f5ff 0%,
+        #eef8ff 45%,
+        #fff8ec 100%
+      );
       min-height: 100vh;
     }
-
-    /* HEADER */
 
     header {
       background: linear-gradient(90deg, #6657e8, #4886ed);
@@ -33,7 +30,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 5px 18px rgba(68, 74, 150, 0.18);
+      box-shadow: 0 5px 18px rgba(68,74,150,0.18);
     }
 
     .logo {
@@ -53,7 +50,7 @@
     }
 
     main {
-      max-width: 1250px;
+      max-width: 1300px;
       margin: auto;
       padding: 45px 20px 70px;
     }
@@ -67,14 +64,12 @@
 
     .intro {
       text-align: center;
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto 35px;
       color: #69728a;
       line-height: 1.6;
       font-size: 17px;
     }
-
-    /* CHOIX DU NIVEAU */
 
     .level-box {
       max-width: 760px;
@@ -91,12 +86,7 @@
       font-size: 31px;
       font-weight: 800;
       cursor: pointer;
-      transition: 0.2s;
       box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-    }
-
-    .level-button:hover {
-      transform: translateY(-6px);
     }
 
     .level-7 {
@@ -109,14 +99,19 @@
       color: #d36e1d;
     }
 
-    /* CALCULATEUR */
-
-    #calculator {
+    #calculator,
+    #year8-message {
       display: none;
     }
 
-    .top-actions {
-      margin-bottom: 25px;
+    #year8-message {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 24px;
+      padding: 45px 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     .back-button {
@@ -130,19 +125,21 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.06);
     }
 
-    /* TABLEAU */
+    .top-actions {
+      margin-bottom: 25px;
+    }
 
     .table-wrapper {
       overflow-x: auto;
       background: white;
       border-radius: 24px;
-      box-shadow: 0 12px 35px rgba(56, 63, 110, 0.10);
+      box-shadow: 0 12px 35px rgba(56,63,110,0.10);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 950px;
+      min-width: 1050px;
     }
 
     th {
@@ -159,7 +156,7 @@
     }
 
     td {
-      padding: 13px 8px;
+      padding: 12px 7px;
       border-bottom: 1px solid #edf0f6;
       text-align: center;
     }
@@ -169,10 +166,6 @@
       padding-left: 18px;
     }
 
-    tbody tr {
-      transition: 0.2s;
-    }
-
     tbody tr:hover {
       background: #fafaff;
     }
@@ -180,7 +173,7 @@
     .subject-name {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -196,43 +189,51 @@
       background: #f1efff;
     }
 
-    .subject-toggle {
-      width: 19px;
-      height: 19px;
-      cursor: pointer;
+    .subject-toggle,
+    .note-toggle {
+      width: 18px;
+      height: 18px;
       accent-color: #6657e8;
+      cursor: pointer;
     }
 
-    /* INPUTS */
+    .note-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
 
     input[type="number"] {
-      width: 82px;
-      padding: 11px 7px;
+      width: 76px;
+      padding: 10px 5px;
       border: 2px solid #e0e3ec;
-      border-radius: 11px;
-      font-size: 16px;
+      border-radius: 10px;
+      font-size: 15px;
       text-align: center;
       background: #fbfcff;
-      transition: 0.2s;
     }
 
     input[type="number"]:focus {
       outline: none;
       border-color: #6b5ce6;
-      background: white;
       box-shadow: 0 0 0 3px rgba(107,92,230,0.10);
     }
 
-    .required {
+    input[type="number"]:disabled {
+      background: #eceff3;
+      color: #aaa;
+      cursor: not-allowed;
+    }
+
+    .synthesis-input {
       background: #fff6dc !important;
       border-color: #ffd67b !important;
     }
 
-    input[type="number"]:disabled {
-      background: #eceff3 !important;
-      border-color: #e2e4e8 !important;
-      color: #aaa;
-      cursor: not-allowed;
+    .error-input {
+      border: 2px solid #e14f4f !important;
+      background: #fff0f0 !important;
     }
 
     .not-applicable {
@@ -243,12 +244,6 @@
     .coef {
       font-weight: 800;
       color: #6254d8;
-      font-size: 16px;
-    }
-
-    .subject-average {
-      font-weight: 800;
-      font-size: 16px;
     }
 
     .average-badge {
@@ -258,6 +253,7 @@
       border-radius: 11px;
       background: #eef1f5;
       color: #70798a;
+      font-weight: 800;
     }
 
     .inactive-row {
@@ -265,18 +261,11 @@
       background: #f3f4f6 !important;
     }
 
-    .error-input {
-      border: 2px solid #e14f4f !important;
-      background: #fff0f0 !important;
-    }
-
-    /* BOUTONS */
-
     .buttons {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 15px;
+      flex-wrap: wrap;
       margin-top: 32px;
     }
 
@@ -289,7 +278,6 @@
       font-size: 17px;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(93,87,220,0.22);
     }
 
     .reset-button {
@@ -302,13 +290,19 @@
       cursor: pointer;
     }
 
-    /* RESULTAT */
-
     #result-zone {
       display: none;
-      max-width: 700px;
+      max-width: 760px;
       margin: 38px auto 0;
       text-align: center;
+    }
+
+    .message {
+      background: #fff2cf;
+      padding: 18px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      color: #77581c;
     }
 
     .general-average {
@@ -317,21 +311,18 @@
       background: white;
       box-shadow: 0 12px 30px rgba(49,58,91,0.10);
       border: 3px solid #dce5f2;
-      transition: 0.3s;
     }
 
     .general-average small {
       display: block;
       color: #69728a;
-      margin-bottom: 7px;
       font-size: 16px;
     }
 
     .general-average strong {
       display: block;
       font-size: 48px;
-      color: #2f855a;
-      margin: 7px 0;
+      margin: 8px 0;
     }
 
     .result-comment {
@@ -346,23 +337,29 @@
       font-size: 14px;
     }
 
-    .message {
-      background: #fff2cf;
-      padding: 18px;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      color: #77581c;
+    .pilot-card {
+      margin-top: 22px;
+      padding: 26px;
+      border-radius: 22px;
+      background: #eaf3ff;
+      border: 2px solid #bdd6ff;
     }
 
-    #year8-message {
-      display: none;
-      max-width: 600px;
-      margin: 50px auto;
-      background: white;
-      border-radius: 24px;
-      padding: 45px 25px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    .pilot-card h2 {
+      margin-top: 0;
+      color: #315f9f;
+    }
+
+    .pilot-score {
+      font-size: 34px;
+      font-weight: 800;
+      margin: 8px 0;
+    }
+
+    .pilot-detail {
+      color: #63728b;
+      margin-top: 8px;
+      font-size: 14px;
     }
 
     footer {
@@ -372,10 +369,7 @@
       font-size: 14px;
     }
 
-    /* MOBILE */
-
     @media (max-width: 700px) {
-
       header {
         padding: 15px 18px;
       }
@@ -395,23 +389,13 @@
       main {
         padding: 35px 12px 60px;
       }
-
-      .table-wrapper {
-        border-radius: 17px;
-      }
-
-      .general-average strong {
-        font-size: 39px;
-      }
     }
-
   </style>
 </head>
 
 <body>
 
 <header>
-
   <a href="index.html" class="logo">
     🎓 Tajrebty Scolaire
   </a>
@@ -419,20 +403,17 @@
   <a href="index.html" class="home-link">
     Accueil
   </a>
-
 </header>
 
-<main>
 
-  <!-- CHOIX NIVEAU -->
+<main>
 
   <section id="level-selection">
 
     <h1>🧮 Calculateur de moyenne</h1>
 
     <p class="intro">
-      Choisis ton niveau, entre tes notes et découvre automatiquement
-      ta moyenne générale.
+      Choisis ton niveau puis renseigne tes notes.
     </p>
 
     <div class="level-box">
@@ -450,14 +431,13 @@
   </section>
 
 
-  <!-- 8EME -->
-
   <section id="year8-message">
 
     <h2>📘 8ème</h2>
 
     <p>
-      Le calculateur de 8ème sera bientôt disponible.
+      Le calculateur de 8ème sera ajouté après validation
+      des coefficients et des règles de calcul.
     </p>
 
     <button class="back-button" onclick="backToLevels()">
@@ -467,24 +447,20 @@
   </section>
 
 
-  <!-- 7EME -->
-
   <section id="calculator">
 
     <div class="top-actions">
-
       <button class="back-button" onclick="backToLevels()">
         ← Changer de niveau
       </button>
-
     </div>
 
     <h1>📊 Ma moyenne — 7ème</h1>
 
     <p class="intro">
-      Saisis tes notes sur 20, par pas de 0,25.
-      Les cases jaunes correspondent aux synthèses obligatoires.
-      Tu peux décocher une matière que ton collège ne propose pas.
+      Décoche un oral ou un contrôle s'il n'existe pas.
+      La synthèse reste obligatoire.
+      Les notes sont saisies par pas de 0,25.
     </p>
 
 
@@ -513,17 +489,11 @@
 
     <div class="buttons">
 
-      <button
-        class="calculate-button"
-        onclick="calculateGeneralAverage()"
-      >
+      <button class="calculate-button" onclick="calculateGeneralAverage()">
         ✨ Calculer ma moyenne
       </button>
 
-      <button
-        class="reset-button"
-        onclick="resetNotes()"
-      >
+      <button class="reset-button" onclick="resetNotes()">
         Effacer les notes
       </button>
 
@@ -534,7 +504,7 @@
 
       <div id="validation-message"></div>
 
-      <div class="general-average" id="result-card">
+      <div class="general-average">
 
         <small>
           Ta moyenne générale est de
@@ -544,15 +514,27 @@
           0,00 / 20
         </strong>
 
-        <div
-          class="result-comment"
-          id="result-comment"
-        ></div>
+        <div class="result-comment" id="result-comment"></div>
 
-        <div
-          class="coef-info"
-          id="coef-result"
-        ></div>
+        <div class="coef-info" id="coef-result"></div>
+
+      </div>
+
+
+      <div class="pilot-card">
+
+        <h2>🎯 Objectif pilote</h2>
+
+        <div class="pilot-score" id="pilot-result">
+          —
+        </div>
+
+        <div id="pilot-message"></div>
+
+        <div class="pilot-detail">
+          Moyenne de Maths + Arabe + Français.
+          Il faut atteindre au moins 12/20.
+        </div>
 
       </div>
 
@@ -580,8 +562,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: true,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -592,8 +573,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: true,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -604,8 +584,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -616,8 +595,7 @@ const subjects = [
     oral: false,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -628,8 +606,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -640,8 +617,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -652,8 +628,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -664,8 +639,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -676,8 +650,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -688,8 +661,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -700,8 +672,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2
+    rule: "standard"
   },
 
   {
@@ -710,10 +681,9 @@ const subjects = [
     icon: "💻",
     coef: 1,
     oral: true,
-    control1: true,
+    control1: false,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 1
+    rule: "informatique"
   },
 
   {
@@ -724,8 +694,7 @@ const subjects = [
     oral: true,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2,
+    rule: "standard",
     optionalSubject: true
   },
 
@@ -737,8 +706,7 @@ const subjects = [
     oral: false,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2,
+    rule: "art",
     optionalSubject: true
   },
 
@@ -750,8 +718,7 @@ const subjects = [
     oral: false,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2,
+    rule: "standard",
     optionalSubject: true
   },
 
@@ -763,42 +730,59 @@ const subjects = [
     oral: false,
     control1: true,
     control2: false,
-    synthesis: true,
-    synthesisWeight: 2,
+    rule: "art",
     optionalSubject: true
   }
 
 ];
 
 
-function createInput(subjectId, type, required = false) {
-
-  return `
-    <input
-      type="number"
-      id="${subjectId}-${type}"
-      min="0"
-      max="20"
-      step="0.25"
-      placeholder="/20"
-      ${required ? 'class="required"' : ''}
-      oninput="liveCalculate('${subjectId}')"
-    >
-  `;
-}
-
-
-function createCell(subject, type) {
+function createOptionalNote(subject, type) {
 
   if (!subject[type]) {
     return `<span class="not-applicable">—</span>`;
   }
 
-  return createInput(
-    subject.id,
-    type,
-    type === "synthesis"
-  );
+  return `
+    <div class="note-box">
+
+      <input
+        type="checkbox"
+        class="note-toggle"
+        id="toggle-${subject.id}-${type}"
+        checked
+        onchange="toggleNote('${subject.id}','${type}')"
+      >
+
+      <input
+        type="number"
+        id="${subject.id}-${type}"
+        min="0"
+        max="20"
+        step="0.25"
+        placeholder="/20"
+        oninput="liveCalculate('${subject.id}')"
+      >
+
+    </div>
+  `;
+}
+
+
+function createSynthesis(subject) {
+
+  return `
+    <input
+      type="number"
+      id="${subject.id}-synthesis"
+      class="synthesis-input"
+      min="0"
+      max="20"
+      step="0.25"
+      placeholder="/20"
+      oninput="liveCalculate('${subject.id}')"
+    >
+  `;
 }
 
 
@@ -809,6 +793,7 @@ function renderSubjects() {
 
   body.innerHTML = "";
 
+
   subjects.forEach(subject => {
 
     const row =
@@ -817,16 +802,15 @@ function renderSubjects() {
     row.id = `row-${subject.id}`;
 
 
-    const toggleHtml =
+    const subjectToggle =
       subject.optionalSubject
 
       ? `
         <input
           type="checkbox"
           class="subject-toggle"
-          id="toggle-${subject.id}"
+          id="subject-${subject.id}"
           checked
-          title="Décoche si ton collège ne propose pas cette matière"
           onchange="toggleSubject('${subject.id}')"
         >
       `
@@ -837,51 +821,43 @@ function renderSubjects() {
     row.innerHTML = `
 
       <td>
-
         <div class="subject-name">
 
-          ${toggleHtml}
+          ${subjectToggle}
 
           <span class="subject-icon">
             ${subject.icon}
           </span>
 
-          <span>
-            ${subject.name}
-          </span>
+          <span>${subject.name}</span>
 
         </div>
-
       </td>
 
       <td>
-        ${createCell(subject, "oral")}
+        ${createOptionalNote(subject, "oral")}
       </td>
 
       <td>
-        ${createCell(subject, "control1")}
+        ${createOptionalNote(subject, "control1")}
       </td>
 
       <td>
-        ${createCell(subject, "control2")}
+        ${createOptionalNote(subject, "control2")}
       </td>
 
       <td>
-        ${createCell(subject, "synthesis")}
+        ${createSynthesis(subject)}
       </td>
 
       <td class="coef">
         ${String(subject.coef).replace(".", ",")}
       </td>
 
-      <td
-        class="subject-average"
-        id="average-${subject.id}"
-      >
-        <span class="average-badge">
-          —
-        </span>
+      <td id="average-${subject.id}">
+        <span class="average-badge">—</span>
       </td>
+
     `;
 
     body.appendChild(row);
@@ -891,12 +867,42 @@ function renderSubjects() {
 }
 
 
-function getNote(subjectId, type) {
+function isSubjectIncluded(subject) {
+
+  if (!subject.optionalSubject) {
+    return true;
+  }
+
+  const toggle =
+    document.getElementById(
+      `subject-${subject.id}`
+    );
+
+  return toggle && toggle.checked;
+}
+
+
+function noteIsActive(subject, type) {
+
+  if (!subject[type]) {
+    return false;
+  }
+
+  const checkbox =
+    document.getElementById(
+      `toggle-${subject.id}-${type}`
+    );
+
+  return checkbox &&
+         checkbox.checked &&
+         !checkbox.disabled;
+}
+
+
+function getNote(id) {
 
   const element =
-    document.getElementById(
-      `${subjectId}-${type}`
-    );
+    document.getElementById(id);
 
   if (
     !element ||
@@ -920,44 +926,92 @@ function getNote(subjectId, type) {
 }
 
 
-function isSubjectIncluded(subject) {
-
-  if (!subject.optionalSubject) {
-    return true;
-  }
-
-  const toggle =
-    document.getElementById(
-      `toggle-${subject.id}`
-    );
-
-  return toggle && toggle.checked;
-}
-
-
 function calculateSubject(subject) {
 
   if (!isSubjectIncluded(subject)) {
     return null;
   }
 
+
   const synthesis =
-    getNote(
-      subject.id,
-      "synthesis"
-    );
+    getNote(`${subject.id}-synthesis`);
 
   if (synthesis === null) {
     return null;
   }
 
 
-  let total =
-    synthesis *
-    subject.synthesisWeight;
+  /*
+    REGLE INFORMATIQUE
+    Oral coef 1
+    Synthèse coef 1
+  */
 
-  let weight =
-    subject.synthesisWeight;
+  if (subject.rule === "informatique") {
+
+    let total = synthesis;
+    let weight = 1;
+
+    if (noteIsActive(subject, "oral")) {
+
+      const oral =
+        getNote(`${subject.id}-oral`);
+
+      if (oral !== null) {
+        total += oral;
+        weight += 1;
+      }
+
+    }
+
+    return total / weight;
+  }
+
+
+  /*
+    REGLE THEATRE / MUSIQUE
+    Oral ou Contrôle coef 2
+    Synthèse coef 1
+  */
+
+  if (subject.rule === "art") {
+
+    let total = synthesis;
+    let weight = 1;
+
+    ["oral", "control1"].forEach(type => {
+
+      if (!noteIsActive(subject, type)) {
+        return;
+      }
+
+      const note =
+        getNote(`${subject.id}-${type}`);
+
+      if (note !== null) {
+
+        total += note * 2;
+        weight += 2;
+
+      }
+
+    });
+
+    return total / weight;
+  }
+
+
+  /*
+    REGLE STANDARD
+    Oral = 1
+    Contrôle = 1
+    Synthèse = 2
+  */
+
+  let total =
+    synthesis * 2;
+
+  let weight = 2;
 
 
   [
@@ -966,20 +1020,16 @@ function calculateSubject(subject) {
     "control2"
   ].forEach(type => {
 
-    if (!subject[type]) {
+    if (!noteIsActive(subject, type)) {
       return;
     }
 
     const note =
-      getNote(
-        subject.id,
-        type
-      );
+      getNote(`${subject.id}-${type}`);
 
     if (note !== null) {
 
       total += note;
-
       weight += 1;
 
     }
@@ -988,43 +1038,6 @@ function calculateSubject(subject) {
 
 
   return total / weight;
-}
-
-
-function getAverageColor(value) {
-
-  if (value < 10) {
-
-    return {
-      background: "#ffe1e1",
-      color: "#c0392b"
-    };
-
-  }
-
-  if (value < 12) {
-
-    return {
-      background: "#fff0cc",
-      color: "#c47700"
-    };
-
-  }
-
-  if (value < 14) {
-
-    return {
-      background: "#ddeaff",
-      color: "#346cc4"
-    };
-
-  }
-
-  return {
-    background: "#dff5e9",
-    color: "#16825f"
-  };
-
 }
 
 
@@ -1038,29 +1051,23 @@ function liveCalculate(subjectId) {
   const average =
     calculateSubject(subject);
 
-  const display =
-    document.getElementById(
-      `average-${subject.id}`
-    );
-
   const badge =
-    display.querySelector(
-      ".average-badge"
-    );
+    document
+      .getElementById(
+        `average-${subject.id}`
+      )
+      .querySelector(
+        ".average-badge"
+      );
 
 
   if (average === null) {
 
     badge.innerText = "—";
-
-    badge.style.background =
-      "#eef1f5";
-
-    badge.style.color =
-      "#70798a";
+    badge.style.background = "#eef1f5";
+    badge.style.color = "#70798a";
 
     return;
-
   }
 
 
@@ -1070,16 +1077,56 @@ function liveCalculate(subjectId) {
       .replace(".", ",");
 
 
-  const colors =
-    getAverageColor(average);
+  if (average < 10) {
+
+    badge.style.background = "#ffe1e1";
+    badge.style.color = "#c0392b";
+
+  } else if (average < 12) {
+
+    badge.style.background = "#fff0cc";
+    badge.style.color = "#c47700";
+
+  } else if (average < 14) {
+
+    badge.style.background = "#ddeaff";
+    badge.style.color = "#346cc4";
+
+  } else {
+
+    badge.style.background = "#dff5e9";
+    badge.style.color = "#16825f";
+
+  }
+
+}
 
 
-  badge.style.background =
-    colors.background;
+function toggleNote(subjectId, type) {
 
-  badge.style.color =
-    colors.color;
+  const checkbox =
+    document.getElementById(
+      `toggle-${subjectId}-${type}`
+    );
 
+  const input =
+    document.getElementById(
+      `${subjectId}-${type}`
+    );
+
+
+  input.disabled =
+    !checkbox.checked;
+
+
+  if (!checkbox.checked) {
+
+    input.value = "";
+    input.classList.remove("error-input");
+
+  }
+
+  liveCalculate(subjectId);
 }
 
 
@@ -1108,68 +1155,74 @@ function toggleSubject(subjectId) {
   [
     "oral",
     "control1",
-    "control2",
-    "synthesis"
+    "control2"
   ].forEach(type => {
+
+    if (!subject[type]) {
+      return;
+    }
+
+    const checkbox =
+      document.getElementById(
+        `toggle-${subjectId}-${type}`
+      );
 
     const input =
       document.getElementById(
         `${subjectId}-${type}`
       );
 
-    if (!input) {
-      return;
-    }
-
-    input.disabled =
+    checkbox.disabled =
       !enabled;
 
-    if (!enabled) {
-
-      input.value = "";
-
-      input.classList.remove(
-        "error-input"
-      );
-
-    }
+    input.disabled =
+      !enabled ||
+      !checkbox.checked;
 
   });
 
 
+  const synthesis =
+    document.getElementById(
+      `${subjectId}-synthesis`
+    );
+
+  synthesis.disabled =
+    !enabled;
+
+
   if (!enabled) {
 
-    const badge =
-      document
-        .getElementById(
-          `average-${subjectId}`
-        )
-        .querySelector(
-          ".average-badge"
-        );
+    row
+      .querySelectorAll(
+        'input[type="number"]'
+      )
+      .forEach(input => {
 
-    badge.innerText = "—";
+        input.value = "";
+        input.classList.remove("error-input");
 
-    badge.style.background =
-      "#eef1f5";
-
-    badge.style.color =
-      "#70798a";
+      });
 
   }
 
+
+  liveCalculate(subjectId);
 }
 
 
-function calculateGeneralAverage() {
+function isQuarter(value) {
 
-  let weightedTotal = 0;
+  return Math.abs(
+    value * 4 -
+    Math.round(value * 4)
+  ) < 0.00001;
+}
 
-  let coefficientTotal = 0;
 
-  let missingSynthesis = [];
+function validateActiveNotes() {
 
-  let invalidNotes = false;
+  let errors = [];
 
 
   document
@@ -1181,39 +1234,6 @@ function calculateGeneralAverage() {
       input.classList.remove(
         "error-input"
       );
-
-      if (input.disabled) {
-        return;
-      }
-
-      if (input.value !== "") {
-
-        const value =
-          parseFloat(input.value);
-
-        const validQuarter =
-          Math.abs(
-            value * 4 -
-            Math.round(value * 4)
-          ) < 0.00001;
-
-
-        if (
-          isNaN(value) ||
-          value < 0 ||
-          value > 20 ||
-          !validQuarter
-        ) {
-
-          input.classList.add(
-            "error-input"
-          );
-
-          invalidNotes = true;
-
-        }
-
-      }
 
     });
 
@@ -1230,47 +1250,172 @@ function calculateGeneralAverage() {
         `${subject.id}-synthesis`
       );
 
-
     const synthesis =
       getNote(
-        subject.id,
-        "synthesis"
+        `${subject.id}-synthesis`
       );
 
 
-    if (synthesis === null) {
+    if (
+      synthesis === null ||
+      !isQuarter(synthesis)
+    ) {
 
-      missingSynthesis.push(
-        subject.name
+      synthesisInput.classList.add(
+        "error-input"
       );
 
-      if (synthesisInput) {
+      errors.push(subject.name);
 
-        synthesisInput.classList.add(
+    }
+
+
+    [
+      "oral",
+      "control1",
+      "control2"
+    ].forEach(type => {
+
+      if (!noteIsActive(subject, type)) {
+        return;
+      }
+
+      const input =
+        document.getElementById(
+          `${subject.id}-${type}`
+        );
+
+      const note =
+        getNote(
+          `${subject.id}-${type}`
+        );
+
+
+      if (
+        note === null ||
+        !isQuarter(note)
+      ) {
+
+        input.classList.add(
           "error-input"
         );
 
+        errors.push(subject.name);
+
       }
 
-      return;
-    }
-
-
-    const average =
-      calculateSubject(subject);
-
-
-    if (average !== null) {
-
-      weightedTotal +=
-        average * subject.coef;
-
-      coefficientTotal +=
-        subject.coef;
-
-    }
+    });
 
   });
+
+
+  return errors;
+}
+
+
+function calculatePilot() {
+
+  const maths =
+    subjects.find(
+      s => s.id === "maths"
+    );
+
+  const arabe =
+    subjects.find(
+      s => s.id === "arabe"
+    );
+
+  const francais =
+    subjects.find(
+      s => s.id === "francais"
+    );
+
+
+  const mathsAvg =
+    calculateSubject(maths);
+
+  const arabeAvg =
+    calculateSubject(arabe);
+
+  const francaisAvg =
+    calculateSubject(francais);
+
+
+  if (
+    mathsAvg === null ||
+    arabeAvg === null ||
+    francaisAvg === null
+  ) {
+    return;
+  }
+
+
+  const pilot =
+    (
+      mathsAvg +
+      arabeAvg +
+      francaisAvg
+    ) / 3;
+
+
+  document.getElementById(
+    "pilot-result"
+  ).innerText =
+
+    pilot
+      .toFixed(2)
+      .replace(".", ",")
+
+    + " / 20";
+
+
+  const message =
+    document.getElementById(
+      "pilot-message"
+    );
+
+
+  if (pilot >= 12) {
+
+    message.innerHTML =
+      "✅ <strong>Condition pilote atteinte</strong>";
+
+    document.getElementById(
+      "pilot-result"
+    ).style.color =
+      "#16825f";
+
+  } else {
+
+    const missing =
+      12 - pilot;
+
+
+    message.innerHTML =
+
+      "⚠️ Il manque environ <strong>"
+
+      + missing
+          .toFixed(2)
+          .replace(".", ",")
+
+      + " point(s)</strong> pour atteindre 12.";
+
+
+    document.getElementById(
+      "pilot-result"
+    ).style.color =
+      "#c47700";
+
+  }
+
+}
+
+
+function calculateGeneralAverage() {
+
+  const errors =
+    validateActiveNotes();
 
 
   const resultZone =
@@ -1288,16 +1433,18 @@ function calculateGeneralAverage() {
     "block";
 
 
-  if (invalidNotes) {
+  if (errors.length > 0) {
 
     message.innerHTML = `
 
       <div class="message">
 
-        Vérifie les notes en rouge.
+        Complète les notes cochées
+        et vérifie les cases rouges.
+
         Les notes doivent être comprises
-        entre 0 et 20 et saisies par
-        pas de 0,25.
+        entre 0 et 20 et saisies
+        par pas de 0,25.
 
       </div>
 
@@ -1307,26 +1454,30 @@ function calculateGeneralAverage() {
   }
 
 
-  if (
-    missingSynthesis.length > 0
-  ) {
+  let weightedTotal = 0;
+  let coefficientTotal = 0;
 
-    message.innerHTML = `
 
-      <div class="message">
+  subjects.forEach(subject => {
 
-        Il manque la synthèse pour :
+    if (!isSubjectIncluded(subject)) {
+      return;
+    }
 
-        <strong>
-          ${missingSynthesis.join(", ")}
-        </strong>
+    const average =
+      calculateSubject(subject);
 
-      </div>
+    if (average !== null) {
 
-    `;
+      weightedTotal +=
+        average * subject.coef;
 
-    return;
-  }
+      coefficientTotal +=
+        subject.coef;
+
+    }
+
+  });
 
 
   const generalAverage =
@@ -1337,24 +1488,32 @@ function calculateGeneralAverage() {
   message.innerHTML = "";
 
 
+  document.getElementById(
+    "general-result"
+  ).innerText =
+
+    generalAverage
+      .toFixed(2)
+      .replace(".", ",")
+
+    + " / 20";
+
+
+  document.getElementById(
+    "coef-result"
+  ).innerText =
+
+    "Somme des coefficients pris en compte : "
+
+    + String(
+        coefficientTotal
+      ).replace(".", ",");
+
+
   const result =
     document.getElementById(
       "general-result"
     );
-
-
-  result.innerText =
-    generalAverage
-      .toFixed(2)
-      .replace(".", ",")
-    + " / 20";
-
-
-  const card =
-    document.getElementById(
-      "result-card"
-    );
-
 
   const comment =
     document.getElementById(
@@ -1364,84 +1523,34 @@ function calculateGeneralAverage() {
 
   if (generalAverage < 10) {
 
-    card.style.borderColor =
-      "#efb1b1";
+    result.style.color = "#c0392b";
+    comment.style.color = "#c0392b";
+    comment.innerText = "Continue tes efforts 💪";
 
-    result.style.color =
-      "#c0392b";
+  } else if (generalAverage < 12) {
 
-    comment.innerText =
-      "Continue tes efforts 💪";
+    result.style.color = "#c47700";
+    comment.style.color = "#c47700";
+    comment.innerText = "Tu es sur la bonne voie 👍";
 
-    comment.style.color =
-      "#c0392b";
+  } else if (generalAverage < 14) {
 
-  }
+    result.style.color = "#346cc4";
+    comment.style.color = "#346cc4";
+    comment.innerText = "Très bien 👏";
 
-  else if (generalAverage < 12) {
+  } else {
 
-    card.style.borderColor =
-      "#ffd58c";
-
-    result.style.color =
-      "#c47700";
-
-    comment.innerText =
-      "Tu es sur la bonne voie 👍";
-
-    comment.style.color =
-      "#c47700";
+    result.style.color = "#16825f";
+    comment.style.color = "#16825f";
+    comment.innerText = "Bravo ! 🎉";
 
   }
-
-  else if (generalAverage < 14) {
-
-    card.style.borderColor =
-      "#a9c8ff";
-
-    result.style.color =
-      "#346cc4";
-
-    comment.innerText =
-      "Très bien 👏";
-
-    comment.style.color =
-      "#346cc4";
-
-  }
-
-  else {
-
-    card.style.borderColor =
-      "#9cdec0";
-
-    result.style.color =
-      "#16825f";
-
-    comment.innerText =
-      "Bravo, excellent résultat ! 🎉";
-
-    comment.style.color =
-      "#16825f";
-
-  }
-
-
-  document.getElementById(
-    "coef-result"
-  ).innerText =
-
-    "Coefficients pris en compte : "
-    +
-    String(coefficientTotal)
-      .replace(".", ",");
 
 
   subjects.forEach(subject => {
 
-    if (
-      isSubjectIncluded(subject)
-    ) {
+    if (isSubjectIncluded(subject)) {
 
       liveCalculate(
         subject.id
@@ -1450,6 +1559,9 @@ function calculateGeneralAverage() {
     }
 
   });
+
+
+  calculatePilot();
 
 
   resultZone.scrollIntoView({
@@ -1469,40 +1581,37 @@ function resetNotes() {
     .forEach(input => {
 
       input.value = "";
-
-      input.classList.remove(
-        "error-input"
-      );
+      input.classList.remove("error-input");
 
     });
 
 
-  subjects.forEach(subject => {
+  document
+    .querySelectorAll(
+      ".average-badge"
+    )
+    .forEach(badge => {
 
-    const badge =
-      document
-        .getElementById(
-          `average-${subject.id}`
-        )
-        .querySelector(
-          ".average-badge"
-        );
+      badge.innerText = "—";
+      badge.style.background = "#eef1f5";
+      badge.style.color = "#70798a";
 
-    badge.innerText = "—";
+    });
 
-    badge.style.background =
-      "#eef1f5";
 
-    badge.style.color =
-      "#70798a";
+  document.getElementById(
+    "pilot-result"
+  ).innerText = "—";
 
-  });
+
+  document.getElementById(
+    "pilot-message"
+  ).innerHTML = "";
 
 
   document.getElementById(
     "result-zone"
   ).style.display = "none";
-
 }
 
 
@@ -1519,7 +1628,6 @@ function openYear7() {
   document.getElementById(
     "calculator"
   ).style.display = "block";
-
 }
 
 
@@ -1536,7 +1644,6 @@ function openYear8() {
   document.getElementById(
     "year8-message"
   ).style.display = "block";
-
 }
 
 
@@ -1553,7 +1660,6 @@ function backToLevels() {
   document.getElementById(
     "level-selection"
   ).style.display = "block";
-
 }
 
 
