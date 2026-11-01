@@ -51,6 +51,35 @@
       margin-bottom: 45px;
     }
 
+
+    .niveaux {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 22px;
+    }
+
+    .niveau-btn {
+      border: none;
+      background: white;
+      color: #554de1;
+      padding: 12px 22px;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(70, 75, 140, 0.08);
+      transition: transform 0.2s;
+    }
+
+    .niveau-btn:hover { transform: translateY(-3px); }
+
+    .niveau-btn.actif {
+      background: #554de1;
+      color: white;
+    }
+
     .title h1 {
       font-size: 42px;
       color: #303a5a;
@@ -309,7 +338,9 @@
   </div>
 
   <section class="title">
-    <h1>📊 Ma moyenne — 7ème</h1>
+    <h1 id="titre-moyenne">📊 Ma moyenne — 7ème</h1>
+
+    <div class="niveaux" id="niveaux"></div>
 
     <p>
       Décoche un oral ou un contrôle s'il n'existe pas.
@@ -1250,6 +1281,45 @@ function calculateAll() {
 }
 
 
+const NIVEAUX = ["6ème", "7ème", "8ème", "9ème"];
+
+function setNiveau(niveau) {
+
+  if (!NIVEAUX.includes(niveau)) niveau = "7ème";
+
+  document.getElementById("titre-moyenne").textContent =
+    "📊 Ma moyenne — " + niveau;
+
+  document.querySelectorAll(".niveau-btn").forEach(b => {
+    b.classList.toggle("actif", b.dataset.niveau === niveau);
+  });
+
+  try {
+    history.replaceState(null, "", "?niveau=" + encodeURIComponent(niveau));
+  } catch (e) {}
+
+}
+
+function initNiveaux() {
+
+  const box = document.getElementById("niveaux");
+
+  NIVEAUX.forEach(n => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "niveau-btn";
+    b.dataset.niveau = n;
+    b.textContent = n;
+    b.onclick = () => setNiveau(n);
+    box.appendChild(b);
+  });
+
+  const demande = new URLSearchParams(location.search).get("niveau");
+  setNiveau(demande);
+
+}
+
+initNiveaux();
 renderSubjects();
 
 </script>

@@ -1006,6 +1006,12 @@
   function selectYear(year) {
 
     selectedYear = year;
+
+    const lienMoyenne = document.querySelector(".header-links a");
+    if (lienMoyenne) {
+      lienMoyenne.href = "moyenne.html?niveau=" + encodeURIComponent(year);
+    }
+
     showSubjects();
 
   }
