@@ -243,6 +243,218 @@
       line-height: 1.6;
     }
 
+
+    .weekly {
+      max-width: 850px;
+      margin: 0 auto 50px;
+    }
+
+    .weekly h2 {
+      text-align: center;
+      color: #303b59;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .weekly-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .fiche {
+      border: none;
+      text-align: left;
+      padding: 22px 20px;
+      border-radius: 21px;
+      cursor: pointer;
+      color: #34405d;
+      box-shadow: 0 9px 24px rgba(31,41,55,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .fiche:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(31,41,55,0.12);
+    }
+
+    .fiche:nth-child(1) { background: #dff5e9; }
+    .fiche:nth-child(2) { background: #ebe6ff; }
+    .fiche:nth-child(3) { background: #ffead3; }
+
+    .fiche-tag {
+      font-size: 13px;
+      color: #69728a;
+      margin-bottom: 8px;
+    }
+
+    .fiche-titre {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .fiche-auteur {
+      font-size: 13px;
+      color: #69728a;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(41,51,77,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 10;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: 22px;
+      padding: 30px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+    }
+
+    .modal-box h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #303b59;
+    }
+
+    .modal-box p,
+    .modal-box li {
+      color: #556079;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .quiz-option + p {
+      margin-top: 12px;
+    }
+
+    .modal-box ul {
+      margin: 10px 0 0 22px;
+    }
+
+    .quiz-option {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border: 1px solid #e3e6ef;
+      background: white;
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin-top: 8px;
+      font-size: 16px;
+      color: #34405d;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .quiz-option.ok { background: #dff5e9; border-color: #8fd5b3; }
+    .quiz-option.ko { background: #fde4e4; border-color: #f0a3a3; }
+
+    .modal-btn {
+      margin-top: 16px;
+      border: none;
+      background: #6552d9;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .modal-btn.light {
+      background: #ebe6ff;
+      color: #6552d9;
+      margin-left: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .weekly-grid { grid-template-columns: 1fr; }
+    }
+
+
+    /* ---------- AMBIANCE PASTEL ANIMEE ---------- */
+
+    .bulles {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bulle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: flotte 14s ease-in-out infinite;
+    }
+
+    .bulle:nth-child(1) { width: 220px; height: 220px; background: #cef6df; top: 8%;  left: -60px;  animation-delay: 0s; }
+    .bulle:nth-child(2) { width: 160px; height: 160px; background: #ffe0bb; top: 55%; right: -40px; animation-delay: -4s; }
+    .bulle:nth-child(3) { width: 260px; height: 260px; background: #e5ddff; bottom: -80px; left: 20%; animation-delay: -8s; }
+    .bulle:nth-child(4) { width: 120px; height: 120px; background: #d8ecff; top: 25%; right: 12%; animation-delay: -2s; }
+
+    @keyframes flotte {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-30px) scale(1.06); }
+    }
+
+    header, .main, footer { position: relative; z-index: 1; }
+
+    .hero h1 { animation: monte 0.7s ease-out both; }
+    .hero p  { animation: monte 0.7s 0.15s ease-out both; }
+
+    .fiche, .year, .about-box {
+      animation: monte 0.6s ease-out both;
+    }
+
+    .fiche:nth-child(2) { animation-delay: 0.12s; }
+    .fiche:nth-child(3) { animation-delay: 0.24s; }
+
+    @keyframes monte {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fiche { border-radius: 26px; }
+
+    .fiche-icone {
+      display: inline-block;
+      font-size: 30px;
+      margin-bottom: 6px;
+      transition: transform 0.3s;
+    }
+
+    .fiche:hover .fiche-icone {
+      transform: rotate(-12deg) scale(1.25);
+    }
+
+    .year { transition: transform 0.25s, box-shadow 0.25s; }
+    .year:hover { transform: translateY(-6px) scale(1.03); }
+
+    .logo-fusee { display: inline-block; transition: transform 0.4s; }
+    .logo:hover .logo-fusee { transform: translate(4px, -4px) rotate(10deg); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bulle, .hero h1, .hero p, .fiche, .year, .about-box { animation: none; }
+    }
+
     .hidden {
       display: none;
     }
@@ -296,9 +508,16 @@
 
 <body>
 
+<div class="bulles" aria-hidden="true">
+  <div class="bulle"></div>
+  <div class="bulle"></div>
+  <div class="bulle"></div>
+  <div class="bulle"></div>
+</div>
+
 <header>
   <div class="logo" onclick="showYears()">
-    Tajrebty Scolaire
+    <span class="logo-fusee">🚀</span> Tajrebty Scolaire
   </div>
 
   <div class="header-links">
@@ -315,7 +534,7 @@
   <section id="page-years">
 
     <div class="hero">
-      <h1>Bienvenue sur Tajrebty Scolaire</h1>
+      <h1>Salut ! Prêt à progresser ?</h1>
 
       <p>
         Des ressources scolaires partagées par des élèves
@@ -358,6 +577,11 @@
         avec l’accompagnement de leurs parents.
       </div>
 
+    </section>
+
+    <section class="weekly">
+      <h2>Cette semaine pour toi</h2>
+      <div class="weekly-grid" id="weekly-grid"></div>
     </section>
 
     <div class="intro">
@@ -608,11 +832,16 @@
 
 </main>
 
+<div id="modal" class="modal hidden" onclick="if (event.target === this) closeModal()">
+  <div class="modal-box" id="modal-box"></div>
+</div>
+
 <footer>
   Tajrebty Scolaire —
   Site d'entraide scolaire à but non lucratif.
 </footer>
 
+<script src="fiches.js"></script>
 <script>
 
   let selectedYear = "";
@@ -627,6 +856,127 @@
     "page-tests",
     "page-documents"
   ];
+
+
+  /* ---------- FICHES DE LA SEMAINE ---------- */
+
+  function el(tag, text, css) {
+    const e = document.createElement(tag);
+    if (text) e.textContent = text;
+    if (css) e.className = css;
+    return e;
+  }
+
+  function closeModal() {
+    document.getElementById("modal").classList.add("hidden");
+  }
+
+  function openModal(box) {
+    const target = document.getElementById("modal-box");
+    target.replaceChildren(box);
+    document.getElementById("modal").classList.remove("hidden");
+  }
+
+  function closeButton() {
+    const b = el("button", "Fermer", "modal-btn light");
+    b.onclick = closeModal;
+    return b;
+  }
+
+  function openFiche(f) {
+    const box = el("div");
+    box.appendChild(el("h3", f.titre));
+    box.appendChild(el("p", f.intro));
+    const ul = el("ul");
+    f.etapes.forEach(t => ul.appendChild(el("li", t)));
+    box.appendChild(ul);
+    box.appendChild(el("p", "Par " + f.auteur, "fiche-auteur"));
+    box.appendChild(closeButton());
+    openModal(box);
+  }
+
+  function openQuiz(qz) {
+    let step = 0;
+    let score = 0;
+
+    function draw() {
+      const box = el("div");
+      box.appendChild(el("p", qz.niveau + " · " + qz.matiere + " · par " + qz.auteur, "fiche-auteur"));
+      box.appendChild(el("h3", qz.titre));
+
+      if (step >= qz.questions.length) {
+        box.appendChild(el("p", "Ton score : " + score + " / " + qz.questions.length));
+        const again = el("button", "Rejouer", "modal-btn");
+        again.onclick = () => { step = 0; score = 0; draw(); };
+        box.appendChild(again);
+        box.appendChild(closeButton());
+        openModal(box);
+        return;
+      }
+
+      const q = qz.questions[step];
+      box.appendChild(el("p", "Question " + (step + 1) + " sur " + qz.questions.length, "fiche-auteur"));
+      box.appendChild(el("p", q.q));
+
+      let answered = false;
+      const info = el("p");
+      const next = el("button", step === qz.questions.length - 1 ? "Voir mon score" : "Question suivante", "modal-btn");
+      next.classList.add("hidden");
+      next.onclick = () => { step++; draw(); };
+
+      q.o.forEach((txt, i) => {
+        const b = el("button", txt, "quiz-option");
+        b.onclick = () => {
+          if (answered) return;
+          answered = true;
+          if (i === q.c) { score++; b.classList.add("ok"); }
+          else {
+            b.classList.add("ko");
+            box.querySelectorAll(".quiz-option")[q.c].classList.add("ok");
+          }
+          info.textContent = q.e;
+          next.classList.remove("hidden");
+        };
+        box.appendChild(b);
+      });
+
+      box.appendChild(info);
+      box.appendChild(next);
+      box.appendChild(closeButton());
+      openModal(box);
+    }
+
+    draw();
+  }
+
+  function renderWeekly() {
+    const grid = document.getElementById("weekly-grid");
+
+    if (typeof FICHES === "undefined") {
+      document.querySelector(".weekly").classList.add("hidden");
+      return;
+    }
+
+    const items = [
+      { data: FICHES.astuces[0], tag: "Astuce de la semaine", icone: "💡", open: openFiche },
+      { data: FICHES.quiz[0],    tag: "Quiz",                 icone: "🧠", open: openQuiz },
+      { data: FICHES.erreurs[0], tag: "L'erreur que j'ai faite", icone: "🔍", open: openFiche }
+    ];
+
+    items.forEach(it => {
+      if (!it.data) return;
+      const b = el("button", "", "fiche");
+      const tag = it.data.niveau ? it.tag + " · " + it.data.niveau : it.tag;
+      b.appendChild(el("div", it.icone, "fiche-icone"));
+      b.appendChild(el("div", tag, "fiche-tag"));
+      b.appendChild(el("div", it.data.titre, "fiche-titre"));
+      b.appendChild(el("div", "Par " + it.data.auteur, "fiche-auteur"));
+      b.onclick = () => it.open(it.data);
+      grid.appendChild(b);
+    });
+  }
+
+  renderWeekly();
 
   function hidePages() {
 
