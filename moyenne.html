@@ -13,31 +13,43 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #fffaf2 0%, #eef7ff 100%);
-      color: #29334d;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #27304a;
+      background:
+        linear-gradient(
+          135deg,
+          #f7f5ff 0%,
+          #eef8ff 45%,
+          #fff8ec 100%
+        );
+      min-height: 100vh;
     }
 
+    /* HEADER */
+
     header {
-      background: white;
+      background: linear-gradient(90deg, #6657e8, #4886ed);
       padding: 18px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 5px 18px rgba(68, 74, 150, 0.18);
     }
 
     .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #6552d9;
+      font-size: 25px;
+      font-weight: 800;
+      color: white;
       text-decoration: none;
     }
 
     .home-link {
       text-decoration: none;
-      color: #6552d9;
+      color: white;
       font-weight: bold;
+      background: rgba(255,255,255,0.17);
+      padding: 10px 17px;
+      border-radius: 12px;
     }
 
     main {
@@ -48,45 +60,53 @@
 
     h1 {
       text-align: center;
+      font-size: 38px;
       margin-bottom: 10px;
-      font-size: 36px;
+      color: #313a5b;
     }
 
     .intro {
       text-align: center;
-      color: #6b7280;
-      margin-bottom: 35px;
+      max-width: 700px;
+      margin: 0 auto 35px;
+      color: #69728a;
       line-height: 1.6;
+      font-size: 17px;
     }
 
     /* CHOIX DU NIVEAU */
 
     .level-box {
-      max-width: 700px;
-      margin: 40px auto;
+      max-width: 760px;
+      margin: 45px auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 25px;
     }
 
     .level-button {
       border: none;
-      padding: 40px 20px;
-      border-radius: 20px;
-      font-size: 28px;
-      font-weight: bold;
+      padding: 50px 20px;
+      border-radius: 26px;
+      font-size: 31px;
+      font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+      transition: 0.2s;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .level-button:hover {
+      transform: translateY(-6px);
     }
 
     .level-7 {
-      background: #dff5e9;
-      color: #187a62;
+      background: linear-gradient(135deg, #cef6df, #e8fff2);
+      color: #16825f;
     }
 
     .level-8 {
-      background: #ffead0;
-      color: #cc6b1e;
+      background: linear-gradient(135deg, #ffe0bb, #fff4df);
+      color: #d36e1d;
     }
 
     /* CALCULATEUR */
@@ -96,185 +116,242 @@
     }
 
     .top-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
       margin-bottom: 25px;
-      flex-wrap: wrap;
     }
 
     .back-button {
       border: none;
       background: white;
-      color: #6552d9;
-      padding: 11px 18px;
-      border-radius: 10px;
+      color: #6255dc;
+      padding: 12px 19px;
+      border-radius: 13px;
       cursor: pointer;
       font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.06);
     }
 
-    .theatre-option {
-      background: #fff3d9;
-      padding: 15px 18px;
-      border-radius: 14px;
-    }
-
-    .theatre-option label {
-      cursor: pointer;
-      font-weight: bold;
-    }
+    /* TABLEAU */
 
     .table-wrapper {
       overflow-x: auto;
       background: white;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border-radius: 24px;
+      box-shadow: 0 12px 35px rgba(56, 63, 110, 0.10);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 900px;
+      min-width: 950px;
     }
 
     th {
-      background: #6552d9;
+      background: linear-gradient(90deg, #6358df, #5485eb);
       color: white;
-      padding: 15px 8px;
+      padding: 17px 8px;
       text-align: center;
       font-size: 14px;
     }
 
     th:first-child {
       text-align: left;
-      padding-left: 18px;
+      padding-left: 22px;
     }
 
     td {
-      padding: 12px 8px;
-      border-bottom: 1px solid #edf0f5;
+      padding: 13px 8px;
+      border-bottom: 1px solid #edf0f6;
       text-align: center;
     }
 
     td:first-child {
       text-align: left;
       padding-left: 18px;
-      font-weight: bold;
     }
 
-    tbody tr:nth-child(even) {
-      background: #fafbff;
+    tbody tr {
+      transition: 0.2s;
     }
+
+    tbody tr:hover {
+      background: #fafaff;
+    }
+
+    .subject-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .subject-icon {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 20px;
+      background: #f1efff;
+    }
+
+    .subject-toggle {
+      width: 19px;
+      height: 19px;
+      cursor: pointer;
+      accent-color: #6657e8;
+    }
+
+    /* INPUTS */
 
     input[type="number"] {
       width: 82px;
-      padding: 10px 6px;
-      border: 1px solid #d5dae4;
-      border-radius: 9px;
-      font-size: 15px;
+      padding: 11px 7px;
+      border: 2px solid #e0e3ec;
+      border-radius: 11px;
+      font-size: 16px;
       text-align: center;
+      background: #fbfcff;
+      transition: 0.2s;
     }
 
     input[type="number"]:focus {
-      outline: 2px solid #b8afff;
-      border-color: #6552d9;
-    }
-
-    .not-applicable {
-      color: #bbb;
-      font-size: 18px;
-    }
-
-    .coef {
-      font-weight: bold;
-      color: #6552d9;
-    }
-
-    .subject-average {
-      font-weight: bold;
-      color: #187a62;
+      outline: none;
+      border-color: #6b5ce6;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(107,92,230,0.10);
     }
 
     .required {
-      background: #fff9e8;
+      background: #fff6dc !important;
+      border-color: #ffd67b !important;
+    }
+
+    input[type="number"]:disabled {
+      background: #eceff3 !important;
+      border-color: #e2e4e8 !important;
+      color: #aaa;
+      cursor: not-allowed;
+    }
+
+    .not-applicable {
+      color: #c2c7d0;
+      font-size: 20px;
+    }
+
+    .coef {
+      font-weight: 800;
+      color: #6254d8;
+      font-size: 16px;
+    }
+
+    .subject-average {
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .average-badge {
+      display: inline-block;
+      min-width: 67px;
+      padding: 8px 10px;
+      border-radius: 11px;
+      background: #eef1f5;
+      color: #70798a;
+    }
+
+    .inactive-row {
+      opacity: 0.38;
+      background: #f3f4f6 !important;
     }
 
     .error-input {
-      border: 2px solid #e74c3c !important;
-      background: #fff2f2;
+      border: 2px solid #e14f4f !important;
+      background: #fff0f0 !important;
     }
 
+    /* BOUTONS */
+
     .buttons {
-      margin-top: 30px;
-      text-align: center;
       display: flex;
       justify-content: center;
-      gap: 15px;
       flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 32px;
     }
 
     .calculate-button {
       border: none;
-      background: #6552d9;
+      background: linear-gradient(90deg, #6657e8, #4886ed);
       color: white;
-      padding: 15px 30px;
-      border-radius: 12px;
+      padding: 16px 32px;
+      border-radius: 14px;
       font-size: 17px;
-      font-weight: bold;
+      font-weight: 800;
       cursor: pointer;
+      box-shadow: 0 8px 20px rgba(93,87,220,0.22);
     }
 
     .reset-button {
-      border: none;
+      border: 2px solid #dddff0;
       background: white;
-      color: #6552d9;
-      padding: 15px 25px;
-      border-radius: 12px;
+      color: #6058c9;
+      padding: 14px 25px;
+      border-radius: 14px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    /* RÉSULTAT */
+    /* RESULTAT */
 
     #result-zone {
       display: none;
       max-width: 700px;
-      margin: 35px auto 0;
+      margin: 38px auto 0;
       text-align: center;
     }
 
     .general-average {
-      background: #dff5e9;
-      padding: 30px;
-      border-radius: 20px;
+      padding: 34px;
+      border-radius: 25px;
+      background: white;
+      box-shadow: 0 12px 30px rgba(49,58,91,0.10);
+      border: 3px solid #dce5f2;
+      transition: 0.3s;
     }
 
     .general-average small {
       display: block;
-      color: #657064;
-      margin-bottom: 8px;
-      font-size: 15px;
+      color: #69728a;
+      margin-bottom: 7px;
+      font-size: 16px;
     }
 
     .general-average strong {
       display: block;
-      font-size: 44px;
-      color: #187a62;
+      font-size: 48px;
+      color: #2f855a;
+      margin: 7px 0;
+    }
+
+    .result-comment {
+      font-weight: 700;
+      font-size: 17px;
+      margin-top: 10px;
     }
 
     .coef-info {
       margin-top: 12px;
-      color: #687284;
+      color: #7b8498;
       font-size: 14px;
     }
 
     .message {
-      background: #fff3d9;
+      background: #fff2cf;
       padding: 18px;
-      border-radius: 14px;
+      border-radius: 15px;
       margin-bottom: 20px;
-      color: #7a5b22;
+      color: #77581c;
     }
 
     #year8-message {
@@ -282,20 +359,31 @@
       max-width: 600px;
       margin: 50px auto;
       background: white;
-      border-radius: 20px;
-      padding: 40px 25px;
+      border-radius: 24px;
+      padding: 45px 25px;
       text-align: center;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      color: #8a94a6;
+      padding: 28px;
+      color: #8992a6;
       font-size: 14px;
     }
 
-    @media (max-width: 650px) {
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 15px 18px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
       h1 {
         font-size: 29px;
       }
@@ -304,44 +392,57 @@
         grid-template-columns: 1fr;
       }
 
-      header {
-        padding: 16px 20px;
+      main {
+        padding: 35px 12px 60px;
+      }
+
+      .table-wrapper {
+        border-radius: 17px;
+      }
+
+      .general-average strong {
+        font-size: 39px;
       }
     }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <a href="index.html" class="logo">Tajrebty Scolaire</a>
+
+  <a href="index.html" class="logo">
+    🎓 Tajrebty Scolaire
+  </a>
 
   <a href="index.html" class="home-link">
     Accueil
   </a>
-</header>
 
+</header>
 
 <main>
 
-  <!-- CHOIX DU NIVEAU -->
+  <!-- CHOIX NIVEAU -->
 
   <section id="level-selection">
 
-    <h1>Calculateur de moyenne 🧮</h1>
+    <h1>🧮 Calculateur de moyenne</h1>
 
     <p class="intro">
-      Choisis ton niveau pour commencer.
+      Choisis ton niveau, entre tes notes et découvre automatiquement
+      ta moyenne générale.
     </p>
 
     <div class="level-box">
 
       <button class="level-button level-7" onclick="openYear7()">
-        7ème
+        📗 7ème
       </button>
 
       <button class="level-button level-8" onclick="openYear8()">
-        8ème
+        📘 8ème
       </button>
 
     </div>
@@ -349,15 +450,14 @@
   </section>
 
 
-  <!-- MESSAGE 8EME -->
+  <!-- 8EME -->
 
   <section id="year8-message">
 
-    <h2>8ème</h2>
+    <h2>📘 8ème</h2>
 
     <p>
-      Le calculateur de 8ème sera disponible dès que
-      les coefficients et les règles de calcul seront ajoutés.
+      Le calculateur de 8ème sera bientôt disponible.
     </p>
 
     <button class="back-button" onclick="backToLevels()">
@@ -367,7 +467,7 @@
   </section>
 
 
-  <!-- CALCULATEUR 7EME -->
+  <!-- 7EME -->
 
   <section id="calculator">
 
@@ -377,28 +477,14 @@
         ← Changer de niveau
       </button>
 
-      <div class="theatre-option">
-
-        <label>
-          <input
-            type="checkbox"
-            id="theatre-enabled"
-            onchange="toggleTheatre()"
-          >
-
-          J'ai Théâtre dans mon collège
-        </label>
-
-      </div>
-
     </div>
 
-
-    <h1>Moyenne générale — 7ème</h1>
+    <h1>📊 Ma moyenne — 7ème</h1>
 
     <p class="intro">
-      Entre uniquement les notes que tu as reçues.
-      La synthèse est obligatoire pour calculer la moyenne.
+      Saisis tes notes sur 20, par pas de 0,25.
+      Les cases jaunes correspondent aux synthèses obligatoires.
+      Tu peux décocher une matière que ton collège ne propose pas.
     </p>
 
 
@@ -407,17 +493,15 @@
       <table>
 
         <thead>
-
           <tr>
             <th>Matière</th>
             <th>Oral</th>
             <th>Contrôle 1</th>
             <th>Contrôle 2</th>
-            <th>Synthèse</th>
+            <th>⭐ Synthèse</th>
             <th>Coef.</th>
             <th>Moyenne</th>
           </tr>
-
         </thead>
 
         <tbody id="subjects-body"></tbody>
@@ -433,7 +517,7 @@
         class="calculate-button"
         onclick="calculateGeneralAverage()"
       >
-        Calculer ma moyenne
+        ✨ Calculer ma moyenne
       </button>
 
       <button
@@ -450,15 +534,25 @@
 
       <div id="validation-message"></div>
 
-      <div class="general-average">
+      <div class="general-average" id="result-card">
 
-        <small>Ta moyenne générale est de</small>
+        <small>
+          Ta moyenne générale est de
+        </small>
 
         <strong id="general-result">
           0,00 / 20
         </strong>
 
-        <div class="coef-info" id="coef-result"></div>
+        <div
+          class="result-comment"
+          id="result-comment"
+        ></div>
+
+        <div
+          class="coef-info"
+          id="coef-result"
+        ></div>
 
       </div>
 
@@ -470,7 +564,7 @@
 
 
 <footer>
-  Tajrebty Scolaire — Site d'entraide scolaire à but non lucratif.
+  Tajrebty Scolaire — Entraide scolaire par et pour les élèves.
 </footer>
 
 
@@ -481,6 +575,7 @@ const subjects = [
   {
     id: "maths",
     name: "Maths",
+    icon: "🔢",
     coef: 3,
     oral: true,
     control1: true,
@@ -492,6 +587,7 @@ const subjects = [
   {
     id: "arabe",
     name: "Arabe",
+    icon: "🗣️",
     coef: 4,
     oral: true,
     control1: true,
@@ -503,6 +599,7 @@ const subjects = [
   {
     id: "francais",
     name: "Français",
+    icon: "📖",
     coef: 4,
     oral: true,
     control1: true,
@@ -514,6 +611,7 @@ const subjects = [
   {
     id: "physique",
     name: "Physique",
+    icon: "⚛️",
     coef: 1.5,
     oral: false,
     control1: true,
@@ -525,6 +623,7 @@ const subjects = [
   {
     id: "svt",
     name: "Sciences de la vie et de la Terre",
+    icon: "🌱",
     coef: 1.5,
     oral: true,
     control1: true,
@@ -536,6 +635,7 @@ const subjects = [
   {
     id: "histoire",
     name: "Histoire",
+    icon: "🏺",
     coef: 1,
     oral: true,
     control1: true,
@@ -547,6 +647,7 @@ const subjects = [
   {
     id: "geographie",
     name: "Géographie",
+    icon: "🌍",
     coef: 1,
     oral: true,
     control1: true,
@@ -558,50 +659,7 @@ const subjects = [
   {
     id: "madaniya",
     name: "Madaniya",
-    coef: 1,
-    oral: true,
-    control1: true,
-    control2: false,
-    synthesis: true,
-    synthesisWeight: 2
-  },
-
-  {
-    id: "sport",
-    name: "Sport",
-    coef: 1,
-    oral: true,
-    control1: true,
-    control2: false,
-    synthesis: true,
-    synthesisWeight: 2
-  },
-
-  {
-    id: "musique",
-    name: "Musique",
-    coef: 1,
-    oral: false,
-    control1: true,
-    control2: false,
-    synthesis: true,
-    synthesisWeight: 2
-  },
-
-  {
-    id: "dessin",
-    name: "Dessin",
-    coef: 1,
-    oral: false,
-    control1: true,
-    control2: false,
-    synthesis: true,
-    synthesisWeight: 2
-  },
-
-  {
-    id: "techniques",
-    name: "Techniques",
+    icon: "🤝",
     coef: 1,
     oral: true,
     control1: true,
@@ -613,7 +671,20 @@ const subjects = [
   {
     id: "anglais",
     name: "Anglais",
+    icon: "🇬🇧",
     coef: 2,
+    oral: true,
+    control1: true,
+    control2: false,
+    synthesis: true,
+    synthesisWeight: 2
+  },
+
+  {
+    id: "techniques",
+    name: "Techniques",
+    icon: "🛠️",
+    coef: 1,
     oral: true,
     control1: true,
     control2: false,
@@ -624,6 +695,7 @@ const subjects = [
   {
     id: "islamique",
     name: "Éducation islamique",
+    icon: "📚",
     coef: 1,
     oral: true,
     control1: true,
@@ -635,20 +707,58 @@ const subjects = [
   {
     id: "informatique",
     name: "Informatique",
+    icon: "💻",
     coef: 1,
     oral: true,
     control1: true,
     control2: false,
     synthesis: true,
-
-    /* Formule particulière du fichier Excel :
-       la synthèse n'est pas doublée pour Informatique */
     synthesisWeight: 1
+  },
+
+  {
+    id: "sport",
+    name: "Sport",
+    icon: "⚽",
+    coef: 1,
+    oral: true,
+    control1: true,
+    control2: false,
+    synthesis: true,
+    synthesisWeight: 2,
+    optionalSubject: true
+  },
+
+  {
+    id: "musique",
+    name: "Musique",
+    icon: "🎵",
+    coef: 1,
+    oral: false,
+    control1: true,
+    control2: false,
+    synthesis: true,
+    synthesisWeight: 2,
+    optionalSubject: true
+  },
+
+  {
+    id: "dessin",
+    name: "Dessin",
+    icon: "🎨",
+    coef: 1,
+    oral: false,
+    control1: true,
+    control2: false,
+    synthesis: true,
+    synthesisWeight: 2,
+    optionalSubject: true
   },
 
   {
     id: "theatre",
     name: "Théâtre",
+    icon: "🎭",
     coef: 1,
     oral: false,
     control1: true,
@@ -669,7 +779,7 @@ function createInput(subjectId, type, required = false) {
       id="${subjectId}-${type}"
       min="0"
       max="20"
-      step="0.01"
+      step="0.25"
       placeholder="/20"
       ${required ? 'class="required"' : ''}
       oninput="liveCalculate('${subjectId}')"
@@ -694,23 +804,55 @@ function createCell(subject, type) {
 
 function renderSubjects() {
 
-  const body = document.getElementById("subjects-body");
+  const body =
+    document.getElementById("subjects-body");
 
   body.innerHTML = "";
 
   subjects.forEach(subject => {
 
-    const row = document.createElement("tr");
+    const row =
+      document.createElement("tr");
 
     row.id = `row-${subject.id}`;
 
-    if (subject.optionalSubject) {
-      row.style.display = "none";
-    }
+
+    const toggleHtml =
+      subject.optionalSubject
+
+      ? `
+        <input
+          type="checkbox"
+          class="subject-toggle"
+          id="toggle-${subject.id}"
+          checked
+          title="Décoche si ton collège ne propose pas cette matière"
+          onchange="toggleSubject('${subject.id}')"
+        >
+      `
+
+      : "";
+
 
     row.innerHTML = `
 
-      <td>${subject.name}</td>
+      <td>
+
+        <div class="subject-name">
+
+          ${toggleHtml}
+
+          <span class="subject-icon">
+            ${subject.icon}
+          </span>
+
+          <span>
+            ${subject.name}
+          </span>
+
+        </div>
+
+      </td>
 
       <td>
         ${createCell(subject, "oral")}
@@ -736,7 +878,9 @@ function renderSubjects() {
         class="subject-average"
         id="average-${subject.id}"
       >
-        —
+        <span class="average-badge">
+          —
+        </span>
       </td>
     `;
 
@@ -750,13 +894,19 @@ function renderSubjects() {
 function getNote(subjectId, type) {
 
   const element =
-    document.getElementById(`${subjectId}-${type}`);
+    document.getElementById(
+      `${subjectId}-${type}`
+    );
 
-  if (!element || element.value === "") {
+  if (
+    !element ||
+    element.value === ""
+  ) {
     return null;
   }
 
-  const value = parseFloat(element.value);
+  const value =
+    parseFloat(element.value);
 
   if (
     isNaN(value) ||
@@ -772,33 +922,17 @@ function getNote(subjectId, type) {
 
 function isSubjectIncluded(subject) {
 
-  if (
-    subject.optionalSubject &&
-    !document.getElementById("theatre-enabled").checked
-  ) {
-    return false;
+  if (!subject.optionalSubject) {
+    return true;
   }
 
-  return true;
+  const toggle =
+    document.getElementById(
+      `toggle-${subject.id}`
+    );
+
+  return toggle && toggle.checked;
 }
-
-
-/*
-  CALCUL DE LA MOYENNE MATIÈRE
-
-  Les notes facultatives vides sont ignorées.
-
-  La synthèse compte double pour les matières
-  concernées, conformément aux formules du fichier.
-
-  Exemple classique :
-
-  Oral 15
-  Contrôle 16
-  Synthèse 18
-
-  (15 + 16 + 18 × 2) / 4
-*/
 
 
 function calculateSubject(subject) {
@@ -808,11 +942,10 @@ function calculateSubject(subject) {
   }
 
   const synthesis =
-    getNote(subject.id, "synthesis");
-
-  /*
-    La synthèse est obligatoire.
-  */
+    getNote(
+      subject.id,
+      "synthesis"
+    );
 
   if (synthesis === null) {
     return null;
@@ -820,31 +953,28 @@ function calculateSubject(subject) {
 
 
   let total =
-    synthesis * subject.synthesisWeight;
+    synthesis *
+    subject.synthesisWeight;
 
   let weight =
     subject.synthesisWeight;
 
 
-  const optionalNotes = [
+  [
     "oral",
     "control1",
     "control2"
-  ];
-
-
-  optionalNotes.forEach(type => {
+  ].forEach(type => {
 
     if (!subject[type]) {
       return;
     }
 
     const note =
-      getNote(subject.id, type);
-
-    /*
-      Une note non renseignée est ignorée.
-    */
+      getNote(
+        subject.id,
+        type
+      );
 
     if (note !== null) {
 
@@ -857,18 +987,53 @@ function calculateSubject(subject) {
   });
 
 
-  if (weight === 0) {
-    return null;
+  return total / weight;
+}
+
+
+function getAverageColor(value) {
+
+  if (value < 10) {
+
+    return {
+      background: "#ffe1e1",
+      color: "#c0392b"
+    };
+
   }
 
-  return total / weight;
+  if (value < 12) {
+
+    return {
+      background: "#fff0cc",
+      color: "#c47700"
+    };
+
+  }
+
+  if (value < 14) {
+
+    return {
+      background: "#ddeaff",
+      color: "#346cc4"
+    };
+
+  }
+
+  return {
+    background: "#dff5e9",
+    color: "#16825f"
+  };
+
 }
 
 
 function liveCalculate(subjectId) {
 
   const subject =
-    subjects.find(s => s.id === subjectId);
+    subjects.find(
+      s => s.id === subjectId
+    );
 
   const average =
     calculateSubject(subject);
@@ -878,15 +1043,118 @@ function liveCalculate(subjectId) {
       `average-${subject.id}`
     );
 
+  const badge =
+    display.querySelector(
+      ".average-badge"
+    );
+
 
   if (average === null) {
 
-    display.innerText = "—";
+    badge.innerText = "—";
 
-  } else {
+    badge.style.background =
+      "#eef1f5";
 
-    display.innerText =
-      average.toFixed(2).replace(".", ",");
+    badge.style.color =
+      "#70798a";
+
+    return;
+
+  }
+
+
+  badge.innerText =
+    average
+      .toFixed(2)
+      .replace(".", ",");
+
+
+  const colors =
+    getAverageColor(average);
+
+
+  badge.style.background =
+    colors.background;
+
+  badge.style.color =
+    colors.color;
+
+}
+
+
+function toggleSubject(subjectId) {
+
+  const subject =
+    subjects.find(
+      s => s.id === subjectId
+    );
+
+  const enabled =
+    isSubjectIncluded(subject);
+
+  const row =
+    document.getElementById(
+      `row-${subjectId}`
+    );
+
+
+  row.classList.toggle(
+    "inactive-row",
+    !enabled
+  );
+
+
+  [
+    "oral",
+    "control1",
+    "control2",
+    "synthesis"
+  ].forEach(type => {
+
+    const input =
+      document.getElementById(
+        `${subjectId}-${type}`
+      );
+
+    if (!input) {
+      return;
+    }
+
+    input.disabled =
+      !enabled;
+
+    if (!enabled) {
+
+      input.value = "";
+
+      input.classList.remove(
+        "error-input"
+      );
+
+    }
+
+  });
+
+
+  if (!enabled) {
+
+    const badge =
+      document
+        .getElementById(
+          `average-${subjectId}`
+        )
+        .querySelector(
+          ".average-badge"
+        );
+
+    badge.innerText = "—";
+
+    badge.style.background =
+      "#eef1f5";
+
+    badge.style.color =
+      "#70798a";
 
   }
 
@@ -905,23 +1173,41 @@ function calculateGeneralAverage() {
 
 
   document
-    .querySelectorAll('input[type="number"]')
+    .querySelectorAll(
+      'input[type="number"]'
+    )
     .forEach(input => {
 
-      input.classList.remove("error-input");
+      input.classList.remove(
+        "error-input"
+      );
+
+      if (input.disabled) {
+        return;
+      }
 
       if (input.value !== "") {
 
         const value =
           parseFloat(input.value);
 
+        const validQuarter =
+          Math.abs(
+            value * 4 -
+            Math.round(value * 4)
+          ) < 0.00001;
+
+
         if (
           isNaN(value) ||
           value < 0 ||
-          value > 20
+          value > 20 ||
+          !validQuarter
         ) {
 
-          input.classList.add("error-input");
+          input.classList.add(
+            "error-input"
+          );
 
           invalidNotes = true;
 
@@ -952,16 +1238,18 @@ function calculateGeneralAverage() {
       );
 
 
-    /*
-      Vérification de la synthèse obligatoire
-    */
-
     if (synthesis === null) {
 
-      missingSynthesis.push(subject.name);
+      missingSynthesis.push(
+        subject.name
+      );
 
       if (synthesisInput) {
-        synthesisInput.classList.add("error-input");
+
+        synthesisInput.classList.add(
+          "error-input"
+        );
+
       }
 
       return;
@@ -986,7 +1274,9 @@ function calculateGeneralAverage() {
 
 
   const resultZone =
-    document.getElementById("result-zone");
+    document.getElementById(
+      "result-zone"
+    );
 
   const message =
     document.getElementById(
@@ -994,80 +1284,170 @@ function calculateGeneralAverage() {
     );
 
 
-  resultZone.style.display = "block";
+  resultZone.style.display =
+    "block";
 
 
   if (invalidNotes) {
 
     message.innerHTML = `
+
       <div class="message">
+
         Vérifie les notes en rouge.
-        Toutes les notes doivent être comprises
-        entre 0 et 20.
+        Les notes doivent être comprises
+        entre 0 et 20 et saisies par
+        pas de 0,25.
+
       </div>
+
     `;
 
     return;
   }
 
 
-  if (missingSynthesis.length > 0) {
+  if (
+    missingSynthesis.length > 0
+  ) {
 
     message.innerHTML = `
+
       <div class="message">
-        Pour calculer ta moyenne générale,
-        renseigne la synthèse pour :
+
+        Il manque la synthèse pour :
+
         <strong>
           ${missingSynthesis.join(", ")}
-        </strong>.
+        </strong>
+
       </div>
+
     `;
 
-    return;
-  }
-
-
-  if (coefficientTotal === 0) {
     return;
   }
 
 
   const generalAverage =
-    weightedTotal / coefficientTotal;
+    weightedTotal /
+    coefficientTotal;
 
 
   message.innerHTML = "";
 
 
-  document.getElementById(
-    "general-result"
-  ).innerText =
+  const result =
+    document.getElementById(
+      "general-result"
+    );
+
+
+  result.innerText =
     generalAverage
       .toFixed(2)
       .replace(".", ",")
     + " / 20";
 
 
+  const card =
+    document.getElementById(
+      "result-card"
+    );
+
+
+  const comment =
+    document.getElementById(
+      "result-comment"
+    );
+
+
+  if (generalAverage < 10) {
+
+    card.style.borderColor =
+      "#efb1b1";
+
+    result.style.color =
+      "#c0392b";
+
+    comment.innerText =
+      "Continue tes efforts 💪";
+
+    comment.style.color =
+      "#c0392b";
+
+  }
+
+  else if (generalAverage < 12) {
+
+    card.style.borderColor =
+      "#ffd58c";
+
+    result.style.color =
+      "#c47700";
+
+    comment.innerText =
+      "Tu es sur la bonne voie 👍";
+
+    comment.style.color =
+      "#c47700";
+
+  }
+
+  else if (generalAverage < 14) {
+
+    card.style.borderColor =
+      "#a9c8ff";
+
+    result.style.color =
+      "#346cc4";
+
+    comment.innerText =
+      "Très bien 👏";
+
+    comment.style.color =
+      "#346cc4";
+
+  }
+
+  else {
+
+    card.style.borderColor =
+      "#9cdec0";
+
+    result.style.color =
+      "#16825f";
+
+    comment.innerText =
+      "Bravo, excellent résultat ! 🎉";
+
+    comment.style.color =
+      "#16825f";
+
+  }
+
+
   document.getElementById(
     "coef-result"
   ).innerText =
-    "Total des coefficients pris en compte : "
-    + String(coefficientTotal)
-        .replace(".", ",");
 
+    "Coefficients pris en compte : "
+    +
+    String(coefficientTotal)
+      .replace(".", ",");
 
-  /*
-    Mise à jour finale
-    des moyennes matière
-  */
 
   subjects.forEach(subject => {
 
-    if (!isSubjectIncluded(subject)) {
-      return;
-    }
+    if (
+      isSubjectIncluded(subject)
+    ) {
 
-    liveCalculate(subject.id);
+      liveCalculate(
+        subject.id
+      );
+
+    }
 
   });
 
@@ -1076,52 +1456,6 @@ function calculateGeneralAverage() {
     behavior: "smooth",
     block: "center"
   });
-
-}
-
-
-function toggleTheatre() {
-
-  const enabled =
-    document.getElementById(
-      "theatre-enabled"
-    ).checked;
-
-
-  const row =
-    document.getElementById(
-      "row-theatre"
-    );
-
-
-  row.style.display =
-    enabled
-      ? "table-row"
-      : "none";
-
-
-  if (!enabled) {
-
-    ["oral", "control1", "control2", "synthesis"]
-      .forEach(type => {
-
-        const input =
-          document.getElementById(
-            `theatre-${type}`
-          );
-
-        if (input) {
-          input.value = "";
-        }
-
-      });
-
-
-    document.getElementById(
-      "average-theatre"
-    ).innerText = "—";
-
-  }
 
 }
 
@@ -1143,15 +1477,26 @@ function resetNotes() {
     });
 
 
-  document
-    .querySelectorAll(
-      ".subject-average"
-    )
-    .forEach(element => {
+  subjects.forEach(subject => {
 
-      element.innerText = "—";
+    const badge =
+      document
+        .getElementById(
+          `average-${subject.id}`
+        )
+        .querySelector(
+          ".average-badge"
+        );
 
-    });
+    badge.innerText = "—";
+
+    badge.style.background =
+      "#eef1f5";
+
+    badge.style.color =
+      "#70798a";
+
+  });
 
 
   document.getElementById(
